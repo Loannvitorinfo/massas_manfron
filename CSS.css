@@ -103,3 +103,7 @@ text-decoration: none;
 font-size: 28px;
 color: pink;    
 }
+
+.container-header-elements {
+    align-items: center;
+}
