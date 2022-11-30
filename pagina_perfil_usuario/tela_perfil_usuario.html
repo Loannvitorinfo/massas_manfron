@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de cadastro </title>
+    <title>Perfil do usuário </title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"href="lib/bootstrap.min.css">
@@ -12,56 +12,39 @@
 
 </head>
 <body>
+
     <header>
         <div class="container-fluid text-center">
             <div class="row container-fluid-header container-header-elements" >
               <div class="col-md-3">
-                <img class="banner" src="imagem/Logo.png" alt="banner" height="137" width="502">
+                <img class="banner" src="imagens\banner.png" alt="banner" height="200" width="200">
               </div>
+              <div class="col-md-6">
+                <nav id="menu" class="pull-right">
+                    <ul>
+                        <li class=""><a class="btn-menu" href="">Pães</a></li></r>
+                        <li class=""><a class="btn-menu" href="">Lasanhas</a></li>
+                        <li class=""><a class="btn-menu" href="">Empadões</a></li>
+                    </ul>
+                </nav>
+              </div>
+              <div class="col-md-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="Pesquisar">
+                  </div>
 
-                
-              <script type="text/javascript" src="index.js"></script>
-    </header>
-    <div class="content">
-        <div class="container-login">
-            <div class="wrapper-login"></div>
-            <form class="login-form">
-                <spam class="login-form-title">
-                    
-                    aaaaaaaaaaaaaaaaaa
-                </spam>
-                <div class="wrap-input margin-top-35 margin bottom-35">
-                    <input class="input-form" type="email" name="email "autocomplete="off" placeholder="E-mail"/>
-                    <spam class="focus-imput-fomr" data-placeholder="E-mail"></spam>
-                </div>
-
-                <div class="wrap-input margin bottom-35">
-                    <input class="input-form" type="password" name="password" placeholder="Senha">
-                    <spam class="focus-imput-fomr" data-placeholder="Senha"></spam>
-                </div>
-
-                <div class="container-login-form-btn">
-
-                    <a target="_blank" href="tela.usuario/tela.usuario.html">Login</button>
-                </div>
-
-            <ul class="login-utils">
-                <li class="margin-top-8 margin-botton-8">
-                <a href="#" class="text2">
-                    Esqueceu sua senha?
-                </a>
-            </li>
-            <li>
-                <spam class="text1"></spam>
-                    Não possui conta ?
-                </spam>
-                <a target="_blank" href="tela.cadastro" class="text2">
-                    Criar conta
-                </a>
-            </li>
-            </ul>
-            </form>
+              </div>
+            </div>
+           
+          </div>
         </div>
+
+    </header>
+
+    <div id="main-container">
+        <h1>Seu perfil</h1>
+
     </div>
 </body>
 </html>
