@@ -1,33 +1,61 @@
 /*cabeçalho*/
-@font-face {
-    font-family: 'serif_display';
-    src: url('-ThinItalic-webfont.eot');
-    src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('serif_display-ThinItalic-webfont.woff') format('woff'),
-         url('serif_display-ThinItalic-webfont.ttf') format('truetype'),
-         url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License). 
-    font-weight: 200;
-    font-style: italic;
-}}
+body{
+    background-color: white;
+    @font-face {
+        font-family:'serif_display';
+        src: url('-ThinItalic-webfont.eot');
+        src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('serif_display-ThinItalic-webfont.woff') format('woff'),
+        url('serif_display-ThinItalic-webfont.ttf') format('truetype'),
+        url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License).
+        font-weight:200,
+        font-style:italic;
+
+    }
+}
 
 header{
     width: 100x;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: px;
     background: rgb(89, 17, 18);
     z-index: 2;
     position: relative;
 }
-header .header-blue li a{
-width: 32px;
-height: 32px;
 
+header .header-blu li a{
+    width: 32px;
+    height: 32px;
 }
 
 header #logotipo{
-position: absolute;
-top: 20px;
+    position:absolute;
+    top: 20px;
 }
+
+#menu li{
+    margin: 26px 0;
+}
+
+#menu li{
+    display: inline-block;
+}
+
+#menu li.search input{
+    background-color: #CD853F;
+    color: rgb(255, 255, 255);
+    border: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+#menu li.search ::-webkit-input-placeholder{
+    color:-#fff
+}
+
+#menu li a{
+    padding: 10px 25px;
+}
+        
 /* geral */ 
 *{
     margin:0;
