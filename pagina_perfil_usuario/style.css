@@ -23,7 +23,7 @@ a {
 
 body {
     padding-top: 25vh;
-    background-image: url(logo.png);
+    background-image: url(../pagina_cadastro_usuario/logo.png);
     background-position-y:-150px;
 }
 
