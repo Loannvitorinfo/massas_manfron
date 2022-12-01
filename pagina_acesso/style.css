@@ -184,8 +184,8 @@ button:hover{
     display: flex;
     justify-content: center;
 }
-
-.login-form-btn {
+/*Alinahar esse botão com as caixas de entrada acima*/
+.login-form-btn { 
     font-size: 16px;
     color: var(--white-color);
     line-height: 1.2;
