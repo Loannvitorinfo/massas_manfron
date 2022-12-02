@@ -23,22 +23,26 @@
             <label for="name">Nome completo</label>
             <input type="text" name="name" id="name" placeholder="Digite seu nome completo">
         </div>
-<!--Area CPF-->
-        <div class="half-box">
-            <label for="name">CPF</label>
-            <input oninput="mascara(this)" type="text" placeholder="Digite seu CPF">
-        </div>
-<!--Area telefone-->
-        <div class="half-box spacing">
-            <label for="name">Telfone</label>
-            <input type="tel" onkeydown="return mascaraTelefone(event)" placeholder="Digiete seu telefone">
 <!--Area nascimento-->
+        <div class="half-box">
+         <!--Area nascimento-->
         <div class="half-box">
             <label for="diaa">Data de nascimento</label>
             <input type="date" id="diaa" name="diaa" >
         </div>
+        </div>
+<!--Area CPF-->
+        <div class="half-box spacing">
+            <label for="name">CPF</label>
+            <input oninput="mascara(this)" type="text" placeholder="Digite seu CPF">
+        </div>
+<!--Area telefone-->
+        <div class="half-box">
+            <label for="name">Telfone</label>
+            <input type="tel" onkeydown="return mascaraTelefone(event)" placeholder="Digite seu telefone">
+        </div>
 <!--Area CEP-->
-        <div class="half-box ">
+        <div class="half-box spacing">
             <label for="number">CEP</label>
             <input type="number" name ="CEP" id="number" placeholder="Informe seu CEP">
         </div>
