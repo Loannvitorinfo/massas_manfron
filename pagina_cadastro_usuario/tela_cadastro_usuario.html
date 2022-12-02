@@ -31,14 +31,14 @@
 <!--Area telefone-->
         <div class="half-box spacing">
             <label for="name">Telfone</label>
-            <input oniput="mascara_celular" input type="tel" required="required" maxlength="15" name="phone" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" />        </div>
+            <input type="tel" onkeydown="return mascaraTelefone(event)" placeholder="Digiete seu telefone">
 <!--Area nascimento-->
         <div class="half-box">
             <label for="diaa">Data de nascimento</label>
             <input type="date" id="diaa" name="diaa" >
         </div>
 <!--Area CEP-->
-        <div class="half-box spacing">
+        <div class="half-box ">
             <label for="number">CEP</label>
             <input type="number" name ="CEP" id="number" placeholder="Informe seu CEP">
         </div>
