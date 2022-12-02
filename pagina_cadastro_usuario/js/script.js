@@ -92,28 +92,28 @@ function mascara(i){
     if (v.length==11) i.value += "-";
 }
 /*Inserir telefone */
-function mascara(o,f){
-    v_obj=o
-    v_fun=f
-    setTimeout("execmascara()",1)
-}
-function execmascara(){
-    v_obj.value=v_fun(v_obj.value)
-}
-function mtel(v){
-    v=v.replace(/\D/g,""); 
-    // Remove o que não é dígito
-    v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
-    // Coloca parênteses em volta dos dois primeiros dígitos
-    v=v.replace(/(\d)(\d{4})$/,"$1-$2");
-    // Coloca hífen entre o quarto e o quinto dígitos
-    return v;
-}
-function id(el){
-    return document.getElementById(el);
-}
-window.onload=function(){
-    id('telefone').onkeyup = function(){
-        mascara(this, mtel);
-    }
-}
+let campo_celular = document.querySelector('#campo_celular');
+
+campo_celular.addEventListener("blur", function(e) {
+   //Remove tudo o que não é dígito
+   let celular = this.value.replace( /\D/g , "");
+
+   if (celular.length==11){
+    celular = celular.replace(/^(\d{2})(\d)/g,"($1) $2"); 
+    resultado_celular = celular.replace(/(\d)(\d{4})$/,"$1-$2");
+    document.getElementById('campo_celular').value = resultado_celular;
+  } else {
+    alert("Digite 11 números.");
+  }
+})
+// Telefone Fixo
+document.querySelector('#campo_fixo').addEventListener("blur", function(e) {
+   let telefone = this.value.replace( /\D/g , "");
+   if (telefone.length==10){
+    telefone = telefone.replace(/^(\d{2})(\d)/g,"($1) $2"); 
+    resultado_telefone = telefone.replace(/(\d)(\d{4})$/,"$1-$2");
+    document.getElementById('campo_fixo').value = resultado_telefone;
+   } else {
+    alert("Digite 10 números.");
+   }
+})
