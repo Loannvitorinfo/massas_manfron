@@ -30,23 +30,22 @@
         </div>
 <!--Area telefone-->
         <div class="half-box spacing">
-            <label for="fone">Informe seu telefone</label>
-            <input type="tel" id="fone" name="fone" required pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="11 99999-9999">
-
-           
+            <label for="telefone">Ex.: (11)91234-1234</label><br>
+            <input oninput="mascara(o,f)" input type="text" name="telefone" id="telelfone" placeholder="Informe seu telefone" maxlength="15">
         </div>
 <!--Area nascimento-->
         <div class="half-box">
-            <label for="diaa">Informe sua data de nascimento</label>
+            <label for="diaa">Data de nascimento</label>
             <input type="date" id="diaa" name="diaa" >
         </div>
 <!--Area CEP-->
-        <div class="half-box">
-            
+        <div class="half-box spacing">
+            <label for="number">CEP</label>
+            <input type="number" name ="CEP" id="number" placeholder="Informe seu CEP">
         </div>
 
 <!--Area bairro-->
-        <div class="half-box">
+        <div class="half-box spacing">
             <label for="name">Bairro</label>
             <input type="text" name="bairro" id="bairro" placeholder="Informe seu bairro">
         </div>
