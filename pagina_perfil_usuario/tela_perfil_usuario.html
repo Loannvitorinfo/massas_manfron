@@ -1,54 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do usuário </title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"href="lib/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" &gt;>
-
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Tela de registro</title>
+    <link rel="stylesheet" href="../pagina_cadastro_usuario/style.css">
+    <link rel="stylesheet" href="../pagina_cadastro_usuario/js/script.js">
 </head>
 <body>
 
-    <header>
-        <div class="container-fluid text-center">
-            <div class="row container-fluid-header container-header-elements" >
-              <div class="col-md-3">
-                <img class="banner" src="Imagens/banner" alt="banner" height="200" width="200">
-              </div>
-              <div class="col-md-6">
-                <nav id="menu" class="pull-right">
-                    <ul>
-                        <li class=""><a class="btn-menu" href="">Pães</a></li></r>
-                        <li class=""><a class="btn-menu" href="">Lasanhas</a></li>
-                        <li class=""><a class="btn-menu" href="">Empadões</a></li>
-                    </ul>
-                </nav>
-              </div>
-              <div class="col-md-3">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="Pesquisar">
-                  </div>
-
-              </div>
-            </div>
-           
-          </div>
+<div id="main-container">
+    <h1>Seus dados</h1>
+    <form action="" method=""></form>
+    <form id="register-fomr">
+        <!--Area e-mail-->
+        <div class="full-box">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="Digite seu E-mail" data-min-length="3">
         </div>
- 
-    </header>
-    <div id="main-container">
-        <h1>Seu Perfil</h1>
-        Usuário:<br>
-        E-mail:<br>
-        Telefone:<br>
-        CPF:<br>
-        
-    </div>
-    </div>
+        <!--Area nome-->
+        <div class="full-box">
+            <label for="name">Nome completo</label>
+            <input type="text" name="name" id="name" placeholder="Digite seu nome completo">
+        </div>
+        <!--Area nascimento-->
+        <div class="half-box spacing">
+            <!--Area nascimento-->
+            <div class="half-box">
+                <label for="diaa">Data de nascimento</label>
+                <input type="date" id="diaa" name="diaa" >
+            </div>
+        </div>
+        <!--Area CPF-->
+        <div class="half-box spacing">
+            <label for="name">CPF</label>
+            <input oninput="mascara(this)" type="text" placeholder="Digite seu CPF">
+        </div>
+        <!--Area telefone-->
+        <div class="half-box spacing">
+            <label for="name">Telfone</label>
+            <input type="tel" onkeydown="return mascaraTelefone(event)" placeholder="Digite seu telefone">
+        </div>
+        <!--Area CEP-->
+        <div class="half-box spacing">
+            <label for="number">CEP</label>
+            <input type="text" maxlength="9" onkeyup="mascaraCEP(event)" />
+        </div>
+
+        <!--Area bairro-->
+        <div class="half-box spacing">
+            <label for="name">Bairro</label>
+            <input type="text" name="bairro" id="bairro" placeholder="Informe seu bairro">
+        </div>
+
+        <!--Area endereço-->
+        <div class="full-box">
+            <label for="name">Endereço</label>
+            <input type="text" name="endereço" id="endereço" placeholder="Informe seu endereço">
+        </div>
+        <!--Captcha dos termos-->
+        <div class="full-box">
+            <label for="agreement" id="agreement-label">Eu li e aceito os <a href="#">termos de uso</a></label>
+            <input type="checkbox" name="agreement" id="agreement">
+        </div>
+        <div class="full-box">
+            <input type="submit" value="Registrar" id="btn-submit">
+        </div>
+    </form>
+</div>
+<p class="error-validation template"></p>
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -1,17 +1,16 @@
 /*cabeçalho*/
 body{
     background-color: white;
-    @font-face {
-        font-family:'serif_display';
-        src: url('-ThinItalic-webfont.eot');
-        src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
-        url('serif_display-ThinItalic-webfont.woff') format('woff'),
-        url('serif_display-ThinItalic-webfont.ttf') format('truetype'),
-        url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License).
-        font-weight:200,
-        font-style:italic;
-
-    }
+    /*@font-face {*/
+    /*    font-family:'serif_display';*/
+    /*    src: url('-ThinItalic-webfont.eot');*/
+    /*    src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),*/
+    /*    url('serif_display-ThinItalic-webfont.woff') format('woff'),*/
+    /*    url('serif_display-ThinItalic-webfont.ttf') format('truetype'),*/
+    /*    url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License).*/
+    /*    font-weight:200,*/
+    /*    font-style:italic;*/
+    /*}*/
 }
 
 header{
