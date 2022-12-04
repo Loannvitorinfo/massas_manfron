@@ -1,0 +1,105 @@
+   body{background-color: saddlebrown;
+    @font-face {
+        font-family: 'serif_display';
+        src: url('-ThinItalic-webfont.eot');
+        src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+             url('serif_display-ThinItalic-webfont.woff') format('woff'),
+             url('serif_display-ThinItalic-webfont.ttf') format('truetype'),
+             url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License). 
+        font-weight: 200;
+        font-style: italic;
+    }}
+
+header{
+        width: 100x;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: rgb(89, 17, 18);
+        z-index: 2;
+        position: relative;
+}
+header .header-blue li a{
+    width: 32px;
+    height: 32px;
+
+}
+
+header #logotipo{
+    position: absolute;
+    top: 20px;
+}
+
+#menu li{
+    margin: 26px 0;
+}
+
+#menu li{
+    display: inline-block;
+}
+
+#menu li.serach{
+    width: 182.px;
+}
+
+#menu li.search input{
+    background-color: #CD853F;
+    color: rgb(255, 255, 255);
+    border: nome;
+    height: 30px;
+    line-height: 30px;
+}
+
+#menu li.search ::-webkit-input-placeholder{
+    color:-#fff;
+}
+
+#menu li a{
+    padding: 10px 25px;
+}
+#banner h1{
+    color:(205, 133, 63);
+    top: 300px;
+    position: relative;
+    font-size: 92px;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.45);
+    
+}
+
+#banner h1 small{
+    font-size: 32px;
+    display: block;
+    color: #000FF7;
+    text-shadow: 2px 2px 2px;
+
+}
+
+.menu_backer {
+    cursor: pointer;
+}
+
+.banner-footer {
+    width: 100%;
+}
+
+.container-header {
+    align-items: center;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-menu {
+color: white;
+font-size: 24px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.btn-menu:hover {
+font-size: 28px;
+color: pink;    
+}
+
+.container-header-elements {
+    align-items: center;
+}
