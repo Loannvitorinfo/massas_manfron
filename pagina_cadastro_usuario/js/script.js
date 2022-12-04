@@ -124,7 +124,25 @@ function mascaraTelefone(event) {
 }
 
 // Area CEP
+function mascaraCEP(event){
+    function Trim(strTexto)
+    {
+        return strTexto.replace(/^\s+|\s+$/g,'');
+    }
+    
+    function IsCEP(srtCEP, blnVazio)
+    {
+        var objER = /^[0-9]{2}\.[0-9]{3}-[0-9]{3}$/;
 
- $(document).ready(function(formatarCep){
-    $("#cep").mask("99.999-999");
- });
+        strCEP = Trim(strCEP)
+        if(strCEP.length > 0)
+        {
+            if(objER.test(strCEP))
+                return true;
+            else
+                return false;
+        }
+    else
+        return blnVazio;
+    }
+}
