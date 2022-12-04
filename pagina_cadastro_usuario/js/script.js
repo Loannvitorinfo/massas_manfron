@@ -122,3 +122,30 @@ function mascaraTelefone(event) {
         return false;
     }
 }
+
+// Area CEP
+const input = document.getElementById("campo");
+input.addEventListener("keyuo", formatarCep);
+function formatarCep(e){
+    var v=e.target.value.replace(/\D/g,"")
+    v=v.replace(/^(\d{5})(\d)/,"$1-$2")
+    e.target.value=v;
+}
+ window.onload=function(){
+    document.getElementById("botao").onclick=function(){
+        var strCEP=document.getElementById("cep").value;
+
+        cep.value = formatarCep(strCEP);
+    }
+ }
+
+ function formatarCep(str){
+    var re = /^([\d]{2})\.?([\d]{3})\-?([\d]{3})/;
+
+    if(re.test(str)){
+        return str.replace(re,"$1.$2-$3");
+    }else{
+        alert("CEP inválido!");
+    }
+    return'';
+ }
