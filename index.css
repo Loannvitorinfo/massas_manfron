@@ -37,7 +37,7 @@ header #logotipo{
     display: inline-block;
 }
 
-#menu li.serach{
+#menu li.search{
     width: 182.px;
 }
 
@@ -65,14 +65,6 @@ header #logotipo{
     
 }
 
-#banner h1 small{
-    font-size: 32px;
-    display: block;
-    color: #000FF7;
-    text-shadow: 2px 2px 2px;
-
-}
-
 .menu_backer {
     cursor: pointer;
 }
@@ -93,11 +85,6 @@ color: white;
 font-size: 24px;
 cursor: pointer;
 text-decoration: none;
-}
-
-.btn-menu:hover {
-font-size: 28px;
-color: pink;    
 }
 
 .container-header-elements {

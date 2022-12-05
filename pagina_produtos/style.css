@@ -1,0 +1,173 @@
+/*Cabeçalho*/
+body{background-color: white    ;
+    @font-face {
+        font-family: 'serif_display';
+        src: url('-ThinItalic-webfont.eot');
+        src: url('serif_display-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+             url('serif_display-ThinItalic-webfont.woff') format('woff'),
+             url('serif_display-ThinItalic-webfont.ttf') format('truetype'),
+             url('serif_display-ThinItalic-webfont.svg#serif_displayThinItalic') format('svg'); (under the Apache Software License). 
+        font-weight: 200;
+        font-style: italic;
+    }}
+
+header{
+    width: 100x;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgb(89, 17, 18);
+    z-index: 2;
+    position: relative;
+}
+header .header-blue li a{
+width: 32px;
+height: 32px;
+
+}
+
+header #logotipo{
+position: absolute;
+top: 20px;
+}
+
+#menu li{
+margin: 26px 0;
+}
+
+#menu li{
+display: inline-block;
+}
+
+#menu li.search{
+width: 182.px;
+}
+
+#menu li.search input{
+background-color: #CD853F;
+color: rgb(255, 255, 255);
+border: nome;
+height: 30px;
+line-height: 30px;
+}
+
+#menu li.search ::-webkit-input-placeholder{
+color:-#fff;
+}
+
+#menu li a{
+padding: 10px 25px;
+}
+#banner h1{
+color:(205, 133, 63);
+top: 300px;
+position: relative;
+font-size: 92px;
+text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.45);
+
+}
+
+
+.menu_backer {
+cursor: pointer;
+}
+
+.banner-footer {
+width: 100%;
+}
+
+.container-header {
+align-items: center;
+width: 700px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.btn-menu {
+color: white;
+font-size: 24px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.container-header-elements {
+align-items: center;
+}
+
+/*Tela de informações*/
+
+#main-container{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #6b141499;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#main-container h1{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.full-box{
+    flex: 1 1 100%;
+    position: relative;
+}
+
+.half-box{
+    flex: 1 1 45%;
+    position: relative;
+}
+
+.spacing{
+    margin-right: 2.5%;
+}
+
+label{
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.input{
+    border-bottom: 2px solid #323232;
+    padding: 10px;
+    font-size: .9rem;
+    margin-bottom: 40px;
+}
+
+.input:focus{
+    border-color: #800000;
+}
+
+.input[type="submit"]{
+    background-color: #800000;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#agreement, agreement-label{
+    display:inline-block;
+    width: auto;
+}
+
+/*Validações*/
+.error-validation{
+    color: #FF1A1A;
+    position: absolute;
+    top: 57px;
+    font-size: .8rem;
+}
+
+.template{
+    display: none;
+}   
