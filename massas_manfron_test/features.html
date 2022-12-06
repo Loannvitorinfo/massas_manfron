@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow: scroll;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment {
+  background-color: #ebebeb;
+  padding: 0.5em;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [
+{"meta":{"protocolVersion":"13.2.1","implementation":{"name":"cucumber-ruby","version":"5.1.0"},"runtime":{"name":"ruby","version":"3.0.3"},"os":{"name":"mingw32","version":"10.0.19044"},"cpu":{"name":"x64"}}},
+{"hook":{"id":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f","sourceReference":{"uri":"capybara-3.37.1/lib/capybara/cucumber.rb","location":{"line":10}}}},
+{"hook":{"id":"ac56cf2a-3499-4825-901a-b76f3cce0b1f","sourceReference":{"uri":"capybara-3.37.1/lib/capybara/cucumber.rb","location":{"line":14}}}},
+{"hook":{"id":"c2fdb222-28d3-45bb-9178-46307bab97a3","tagExpression":"@javascript","sourceReference":{"uri":"capybara-3.37.1/lib/capybara/cucumber.rb","location":{"line":18}}}},
+{"hook":{"id":"65250e64-b09d-48fe-9d5c-f6d72959ed33","sourceReference":{"uri":"capybara-3.37.1/lib/capybara/cucumber.rb","location":{"line":22}}}},
+{"hook":{"id":"899111f1-d6ad-4a30-9e4f-e28aeebdf488","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":1}}}},
+{"hook":{"id":"a4706988-60c9-44e6-a790-5fea9accb670","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":12}}}},
+{"hook":{"id":"8ade09a0-fbe0-4f90-bb64-237da3d70adf","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":21}}}},
+{"stepDefinition":{"id":"ca700faa-a994-40bb-be35-f281846c78dd","pattern":{"source":"informo meu login e senha","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":4}}}},
+{"stepDefinition":{"id":"0001cf73-3974-42d7-8010-4e7a6f873345","pattern":{"source":"que estou na pagina principal Massas Manfron","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":9}}}},
+{"stepDefinition":{"id":"b81f5280-8ef7-4599-9d69-65d7cb50eee7","pattern":{"source":"vejo e as opções de produtos {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":13}}}},
+{"stepDefinition":{"id":"b2ae02e8-0a35-43c2-ad41-4a403ce5a10f","pattern":{"source":"clico a opção de produtos {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":20}}}},
+{"stepDefinition":{"id":"9474df6c-7553-4a5c-9861-eb4d21d92a4a","pattern":{"source":"clico em login","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":31}}}},
+{"stepDefinition":{"id":"ff1eef3c-79f8-48cd-8202-1d640befd339","pattern":{"source":"visualizo a tela de login","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":35}}}},
+{"stepDefinition":{"id":"d08761b2-8657-475e-91b6-ecc2ed81c4ac","pattern":{"source":"clico em criar conta","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":39}}}},
+{"stepDefinition":{"id":"c49a45c4-9f53-430d-85d3-8aad448d3d50","pattern":{"source":"vou para tela de cadastro","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":43}}}},
+{"stepDefinition":{"id":"68214037-8184-48a8-9295-5f9ee3a09467","pattern":{"source":"preencho E-mail {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":47}}}},
+{"stepDefinition":{"id":"00e423f6-3030-4061-a798-3c3a8721e406","pattern":{"source":"insiro o Nome completo  {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":51}}}},
+{"stepDefinition":{"id":"002264f5-65ff-4925-9b60-a1bb105472b2","pattern":{"source":"coloco a Data de nascimento {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":55}}}},
+{"stepDefinition":{"id":"cab674a5-f135-47ca-8978-085fe1300c43","pattern":{"source":"insiro o CPF {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":59}}}},
+{"stepDefinition":{"id":"b1fdfc9a-6df6-4b52-94a7-439688e62867","pattern":{"source":"preeencho o Telefone {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":63}}}},
+{"stepDefinition":{"id":"8636fe85-cbef-416d-b747-be387137687e","pattern":{"source":"coloco o CEP {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":67}}}},
+{"stepDefinition":{"id":"a1b76b0b-c017-4819-8847-5d2cea86fedf","pattern":{"source":"informo o bairo {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":71}}}},
+{"stepDefinition":{"id":"50a032f4-3dcd-4a77-bae6-605f6d7f30a2","pattern":{"source":"coloco o endereço {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":75}}}},
+{"stepDefinition":{"id":"3fe4a07c-63fd-4362-98ce-eb60ce959b61","pattern":{"source":"marco aceite aos termos e condições","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":79}}}},
+{"stepDefinition":{"id":"a66b014c-d653-455b-81f8-dfe75141de14","pattern":{"source":"registro as informações","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":83}}}},
+{"stepDefinition":{"id":"63b475d3-f6dc-428d-b9fc-0e31595a6ec1","pattern":{"source":"que estou na pagina Perfil usuário","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":87}}}},
+{"stepDefinition":{"id":"6e7df360-ee02-47f7-a510-3d2935b516f8","pattern":{"source":"vejo seus dados","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":91}}}},
+{"stepDefinition":{"id":"afa82d29-a59d-4c8b-af80-4d9b127b2b96","pattern":{"source":"exibe E-mail {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":95}}}},
+{"stepDefinition":{"id":"cb1e50d9-587b-42b1-aab8-89df1f996bf9","pattern":{"source":"exibe o Nome completo  {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":100}}}},
+{"stepDefinition":{"id":"b4dff40d-ab6b-4132-91e0-8e1e5a431698","pattern":{"source":"exibe a Data de nascimento {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":105}}}},
+{"stepDefinition":{"id":"81b5288f-c226-4612-a6f1-d58ce335991e","pattern":{"source":"exibe o CPF {float}.{int}-{int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":110}}}},
+{"stepDefinition":{"id":"ae5fe275-3a11-482d-858d-5e5df9628342","pattern":{"source":"exibe o Telefone {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":115}}}},
+{"stepDefinition":{"id":"b9d44c36-b620-4ec0-98a5-cbce1ebd8f56","pattern":{"source":"exibe o CEP {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":120}}}},
+{"stepDefinition":{"id":"a7d35419-df14-43d8-a8f5-0a831903ac03","pattern":{"source":"exibe o bairo {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":125}}}},
+{"stepDefinition":{"id":"36eb952f-9741-4730-9ee8-fc86995d7375","pattern":{"source":"exibe o endereço {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":130}}}},
+{"stepDefinition":{"id":"0b71c212-f88f-44d1-9af9-82a776da2b09","pattern":{"source":"Alterar dados cadastrados","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":135}}}},
+{"stepDefinition":{"id":"cedadbb8-fe20-49f0-b823-324e86afc6e1","pattern":{"source":"que estou na pagina Cadastro de produto","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":139}}}},
+{"stepDefinition":{"id":"0f43915a-d66d-4a61-8478-386a9fba77e1","pattern":{"source":"preencho o Nome do produto {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":143}}}},
+{"stepDefinition":{"id":"c4f30c4a-e32b-4b31-8210-393c351dbb90","pattern":{"source":"informo a Categoria do produto {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":148}}}},
+{"stepDefinition":{"id":"acfd02b4-9bf3-4c26-9688-46f86b92a7ec","pattern":{"source":"escrevo a Quantidade {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/_GenericSteps.rb","location":{"line":153}}}},
+{"source":{"uri":"features/specs/principal.feature","data":"  #language: pt\n\n  Funcionalidade: Validar acesso principal e menus em STG\n\n    @valido_tela\n    Cenario: Valido links do menu principal\n      Dado que estou na pagina principal Massas Manfron\n      E vejo e as opções de produtos \"Pães\"\n      E vejo e as opções de produtos \"Lasanhas\"\n      E vejo e as opções de produtos \"Empadões\"\n\n    @valido_tela\n    Cenario: Valido cards de produtos\n      Dado que estou na pagina principal Massas Manfron\n      E clico a opção de produtos \"Pães\"\n      E clico a opção de produtos \"Lasanhas\"\n      E clico a opção de produtos \"Empadões\"\n\n    @valido_login\n    Cenario: Valido acesso ao login\n      Dado que estou na pagina principal Massas Manfron\n      E vejo e as opções de produtos \"Pães\"\n      E vejo e as opções de produtos \"Lasanhas\"\n      E vejo e as opções de produtos \"Empadões\"\n      E clico em login\n      E visualizo a tela de login\n      E clico em criar conta\n      E vou para tela de cadastro\n      E preencho E-mail \"loannvitor\"\n      E insiro o Nome completo  \"Loann Vitor Marques de Oliveira\"\n      E coloco a Data de nascimento \"24/03/2004\"\n      E insiro o CPF \"10139207910\"\n      E preeencho o Telefone \"41998634188\"\n      E coloco o CEP \"82700-380\"\n      E informo o bairo \"Barreirinha\"\n      E coloco o endereço \"Rua dos Ipês Número 201\"\n      Quando marco aceite aos termos e condições\n      Então registro as informações\n\n    @valido_perfil\n    Cenario: Valido tela de perfil\n      Dado que estou na pagina Perfil usuário\n      E vejo o texto \"Seus dados\"\n      E exibe E-mail \"loannvitor\"\n      E exibe o Nome completo  \"Loann Vitor Marques de Oliveira\"\n      E exibe a Data de nascimento \"24/03/2004\"\n      E exibe o CPF \"10139207910\"\n      E exibe o Telefone \"(41) 99863-4188\"\n      E exibe o CEP \"82700-380\"\n      E exibe o bairo \"Barreirinha\"\n      E exibe o endereço \"Rua dos Ipês Número 201\"\n      E Alterar dados cadastrados\n\n    @valido_tela_de_cadasatro_de_produto\n    Cenario: Valido tela de cadastro de produto\n      Dado que estou na pagina Cadastro produto\n      E vejo o texto \"Cadastre o produo\"\n      E preencho o Nome do produto \"Lasanha Bolonhesa\"\n      E informo a Categoria do produto \"Lasanha\"\n      E escrevo a Quantidade \"20\"\n      E preencho Senha \"123456789\"\n      E clico em Cadastrar\n\n\n\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"gherkinDocument":{"feature":{"location":{"line":3,"column":3},"language":"pt","keyword":"Funcionalidade","name":"Validar acesso principal e menus em STG","children":[{"scenario":{"id":"a107e6e1-8a5f-40b0-9602-3eb533e034b9","tags":[{"location":{"line":5,"column":5},"name":"@valido_tela","id":"3d11280d-d5a9-4fa7-8c77-ca1f2f99d4ca"}],"location":{"line":6,"column":5},"keyword":"Cenario","name":"Valido links do menu principal","steps":[{"location":{"line":7,"column":7},"keyword":"Dado ","text":"que estou na pagina principal Massas Manfron","id":"444d258d-057f-4bec-9105-f6cac0f6d017"},{"location":{"line":8,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Pães\"","id":"00514073-db5f-428a-89e3-3f4e73ef611e"},{"location":{"line":9,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Lasanhas\"","id":"14486b71-e95b-4a32-b178-89b13f02070a"},{"location":{"line":10,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Empadões\"","id":"eac1b8bc-5f82-486f-831e-4ede86958367"}]}},{"scenario":{"id":"d4213bab-ea7f-4354-9c3c-2873046a5c66","tags":[{"location":{"line":12,"column":5},"name":"@valido_tela","id":"511e8f75-ec07-406f-be0b-f1147d157bc7"}],"location":{"line":13,"column":5},"keyword":"Cenario","name":"Valido cards de produtos","steps":[{"location":{"line":14,"column":7},"keyword":"Dado ","text":"que estou na pagina principal Massas Manfron","id":"82e12d59-4ab1-4160-bfce-26f65fc3e432"},{"location":{"line":15,"column":7},"keyword":"E ","text":"clico a opção de produtos \"Pães\"","id":"c68aa046-74f3-4730-8bec-6a2e8a19129e"},{"location":{"line":16,"column":7},"keyword":"E ","text":"clico a opção de produtos \"Lasanhas\"","id":"319a9888-c2da-4114-8ba8-cf6eecf50f29"},{"location":{"line":17,"column":7},"keyword":"E ","text":"clico a opção de produtos \"Empadões\"","id":"2e69afdc-b96c-4574-bb2a-25b47d5f2b71"}]}},{"scenario":{"id":"307f409f-e35e-4135-82ad-4d3b83ef966e","tags":[{"location":{"line":19,"column":5},"name":"@valido_login","id":"618bd543-18d8-441a-bddf-6b7743dc7290"}],"location":{"line":20,"column":5},"keyword":"Cenario","name":"Valido acesso ao login","steps":[{"location":{"line":21,"column":7},"keyword":"Dado ","text":"que estou na pagina principal Massas Manfron","id":"6e1be5e9-76e7-41c1-a4d7-854b280f83a5"},{"location":{"line":22,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Pães\"","id":"3139c4b7-703b-4ff4-ae94-4e8bfb7e29b0"},{"location":{"line":23,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Lasanhas\"","id":"ed81ed44-1142-4813-bb6f-d762eceff09f"},{"location":{"line":24,"column":7},"keyword":"E ","text":"vejo e as opções de produtos \"Empadões\"","id":"ea2409ad-d229-4352-b200-b5c080615905"},{"location":{"line":25,"column":7},"keyword":"E ","text":"clico em login","id":"3483d490-deff-491d-b772-478cd80e161e"},{"location":{"line":26,"column":7},"keyword":"E ","text":"visualizo a tela de login","id":"353ebcf8-1ae6-47ec-854a-ae4ee6cfcebe"},{"location":{"line":27,"column":7},"keyword":"E ","text":"clico em criar conta","id":"efd3a86d-ddc9-497a-83e6-c631c791a1dc"},{"location":{"line":28,"column":7},"keyword":"E ","text":"vou para tela de cadastro","id":"d7c78155-e854-4516-8e84-34fe4f93fce5"},{"location":{"line":29,"column":7},"keyword":"E ","text":"preencho E-mail \"loannvitor\"","id":"733c20af-0623-4f59-9ce4-344db600a678"},{"location":{"line":30,"column":7},"keyword":"E ","text":"insiro o Nome completo  \"Loann Vitor Marques de Oliveira\"","id":"52149fe3-dc10-4919-829e-2fed854b8351"},{"location":{"line":31,"column":7},"keyword":"E ","text":"coloco a Data de nascimento \"24/03/2004\"","id":"7dc3331d-76b4-4105-8222-caddd384a685"},{"location":{"line":32,"column":7},"keyword":"E ","text":"insiro o CPF \"10139207910\"","id":"fa598872-37d7-48a8-88b7-ae05b5403c21"},{"location":{"line":33,"column":7},"keyword":"E ","text":"preeencho o Telefone \"41998634188\"","id":"c2c6a0b4-91a9-457f-8831-fdb1e6be8b70"},{"location":{"line":34,"column":7},"keyword":"E ","text":"coloco o CEP \"82700-380\"","id":"3201ba6c-4f69-48c6-9037-236fd09a2c51"},{"location":{"line":35,"column":7},"keyword":"E ","text":"informo o bairo \"Barreirinha\"","id":"7668d890-a4dc-4b5e-870e-b8c6adf48ee3"},{"location":{"line":36,"column":7},"keyword":"E ","text":"coloco o endereço \"Rua dos Ipês Número 201\"","id":"890d3025-1975-4cd6-881f-381c37d23667"},{"location":{"line":37,"column":7},"keyword":"Quando ","text":"marco aceite aos termos e condições","id":"1e8dd218-13af-42c2-923b-9de3094ceb9f"},{"location":{"line":38,"column":7},"keyword":"Então ","text":"registro as informações","id":"f28c9098-668c-458e-ba74-d217e89b51f6"}]}},{"scenario":{"id":"37e7b4d1-56b9-4151-a3bd-d302d932dc3c","tags":[{"location":{"line":40,"column":5},"name":"@valido_perfil","id":"113d09e4-389d-4954-848c-b7697ee85d72"}],"location":{"line":41,"column":5},"keyword":"Cenario","name":"Valido tela de perfil","steps":[{"location":{"line":42,"column":7},"keyword":"Dado ","text":"que estou na pagina Perfil usuário","id":"03edf10c-48d4-4cd5-a589-ff8edbbfed2c"},{"location":{"line":43,"column":7},"keyword":"E ","text":"vejo o texto \"Seus dados\"","id":"7cae0f75-7398-4662-83c5-0b8ca1f0d506"},{"location":{"line":44,"column":7},"keyword":"E ","text":"exibe E-mail \"loannvitor\"","id":"5e1b6849-54e2-4c4e-b7ba-5e7902fabd51"},{"location":{"line":45,"column":7},"keyword":"E ","text":"exibe o Nome completo  \"Loann Vitor Marques de Oliveira\"","id":"ec4e7958-821e-4e8d-8bc0-999c44ae3ac1"},{"location":{"line":46,"column":7},"keyword":"E ","text":"exibe a Data de nascimento \"24/03/2004\"","id":"7d7044fa-3b62-456e-b617-a29a7db44d7f"},{"location":{"line":47,"column":7},"keyword":"E ","text":"exibe o CPF \"10139207910\"","id":"51c60630-5dbd-4030-ba1f-21323ac9fc82"},{"location":{"line":48,"column":7},"keyword":"E ","text":"exibe o Telefone \"(41) 99863-4188\"","id":"70e9800c-ef87-4920-8242-ee09e3819b91"},{"location":{"line":49,"column":7},"keyword":"E ","text":"exibe o CEP \"82700-380\"","id":"7b07c52a-598c-4547-b411-5638be92943c"},{"location":{"line":50,"column":7},"keyword":"E ","text":"exibe o bairo \"Barreirinha\"","id":"3373fb8b-d6dd-4086-807f-ea09f20a9bb1"},{"location":{"line":51,"column":7},"keyword":"E ","text":"exibe o endereço \"Rua dos Ipês Número 201\"","id":"4707f222-bd9a-46be-b161-d8b1175594a6"},{"location":{"line":52,"column":7},"keyword":"E ","text":"Alterar dados cadastrados","id":"89c375ed-354d-4904-986c-523d5af41a70"}]}},{"scenario":{"id":"95cbcc9d-5daf-4f6d-9117-9beea5d3c0fd","tags":[{"location":{"line":54,"column":5},"name":"@valido_tela_de_cadasatro_de_produto","id":"a3227887-dfed-43cc-9f27-9750f38e8aba"}],"location":{"line":55,"column":5},"keyword":"Cenario","name":"Valido tela de cadastro de produto","steps":[{"location":{"line":56,"column":7},"keyword":"Dado ","text":"que estou na pagina Cadastro produto","id":"2a099aba-9779-4dea-b8f7-f7a33f8ec606"},{"location":{"line":57,"column":7},"keyword":"E ","text":"vejo o texto \"Cadastre o produo\"","id":"a3599dec-5158-413b-8a7d-df113b48661b"},{"location":{"line":58,"column":7},"keyword":"E ","text":"preencho o Nome do produto \"Lasanha Bolonhesa\"","id":"f1428dbf-1444-462b-b940-c5d13e108915"},{"location":{"line":59,"column":7},"keyword":"E ","text":"informo a Categoria do produto \"Lasanha\"","id":"ca1a584d-3179-44c0-8223-52df73d2439c"},{"location":{"line":60,"column":7},"keyword":"E ","text":"escrevo a Quantidade \"20\"","id":"9b98fbc7-a635-405d-a8dd-1df8d3a8745f"},{"location":{"line":61,"column":7},"keyword":"E ","text":"preencho Senha \"123456789\"","id":"e69db8e8-f59a-490a-abe2-03575cc54609"},{"location":{"line":62,"column":7},"keyword":"E ","text":"clico em Cadastrar","id":"a7a67c3d-1d25-494e-a570-7fe29254ef78"}]}}]},"uri":"features/specs/principal.feature"}},
+{"pickle":{"uri":"features/specs/principal.feature","id":"2e5ab3b5-cfd0-4faa-b6f1-ce66f2b8ad41","tags":[{"name":"@valido_tela","astNodeId":"3d11280d-d5a9-4fa7-8c77-ca1f2f99d4ca"}],"name":"Valido links do menu principal","language":"pt","astNodeIds":["a107e6e1-8a5f-40b0-9602-3eb533e034b9"],"steps":[{"id":"5495f8b7-0a3a-4507-a269-b20c6662f9e8","astNodeIds":["444d258d-057f-4bec-9105-f6cac0f6d017"],"text":"que estou na pagina principal Massas Manfron"},{"id":"f2ef608f-6caa-4385-ac65-4f6719aa413e","astNodeIds":["00514073-db5f-428a-89e3-3f4e73ef611e"],"text":"vejo e as opções de produtos \"Pães\""},{"id":"1b771528-de8e-4240-9d8c-ab67d1c11e86","astNodeIds":["14486b71-e95b-4a32-b178-89b13f02070a"],"text":"vejo e as opções de produtos \"Lasanhas\""},{"id":"edcc8f87-ed7b-4c72-b29b-3fe8cfde0ab6","astNodeIds":["eac1b8bc-5f82-486f-831e-4ede86958367"],"text":"vejo e as opções de produtos \"Empadões\""}]}},
+{"pickle":{"uri":"features/specs/principal.feature","id":"33732dad-6fd5-4126-b8ab-51576be5505c","tags":[{"name":"@valido_tela","astNodeId":"511e8f75-ec07-406f-be0b-f1147d157bc7"}],"name":"Valido cards de produtos","language":"pt","astNodeIds":["d4213bab-ea7f-4354-9c3c-2873046a5c66"],"steps":[{"id":"176bd636-7695-4a54-84b2-76af9ca059d5","astNodeIds":["82e12d59-4ab1-4160-bfce-26f65fc3e432"],"text":"que estou na pagina principal Massas Manfron"},{"id":"7f1a285d-033e-4356-9c59-d0bd2771b346","astNodeIds":["c68aa046-74f3-4730-8bec-6a2e8a19129e"],"text":"clico a opção de produtos \"Pães\""},{"id":"d3169a28-fa4f-4ec0-8837-7e3c1c264cca","astNodeIds":["319a9888-c2da-4114-8ba8-cf6eecf50f29"],"text":"clico a opção de produtos \"Lasanhas\""},{"id":"291e91e6-4fb4-4dfa-9cb2-8e3c71468527","astNodeIds":["2e69afdc-b96c-4574-bb2a-25b47d5f2b71"],"text":"clico a opção de produtos \"Empadões\""}]}},
+{"pickle":{"uri":"features/specs/principal.feature","id":"124851cc-d0bf-44f2-9c34-25ec9cea6ca7","tags":[{"name":"@valido_login","astNodeId":"618bd543-18d8-441a-bddf-6b7743dc7290"}],"name":"Valido acesso ao login","language":"pt","astNodeIds":["307f409f-e35e-4135-82ad-4d3b83ef966e"],"steps":[{"id":"3b24f650-6b92-490a-b2d5-abc2ad9913ca","astNodeIds":["6e1be5e9-76e7-41c1-a4d7-854b280f83a5"],"text":"que estou na pagina principal Massas Manfron"},{"id":"1077c204-afce-4f93-96a7-cac268bf8f00","astNodeIds":["3139c4b7-703b-4ff4-ae94-4e8bfb7e29b0"],"text":"vejo e as opções de produtos \"Pães\""},{"id":"00f4ac7f-4fb0-4757-9cb3-bd1d4da4d070","astNodeIds":["ed81ed44-1142-4813-bb6f-d762eceff09f"],"text":"vejo e as opções de produtos \"Lasanhas\""},{"id":"1b0d3c3e-cedf-47c8-832d-3e97b5c7af41","astNodeIds":["ea2409ad-d229-4352-b200-b5c080615905"],"text":"vejo e as opções de produtos \"Empadões\""},{"id":"10665bc9-f9b6-48cf-badb-d60a557d650f","astNodeIds":["3483d490-deff-491d-b772-478cd80e161e"],"text":"clico em login"},{"id":"c6b23a30-f8cd-4fd5-a682-4796d651f416","astNodeIds":["353ebcf8-1ae6-47ec-854a-ae4ee6cfcebe"],"text":"visualizo a tela de login"},{"id":"af34a55f-91c7-43b0-9b2a-9f55f7c69a51","astNodeIds":["efd3a86d-ddc9-497a-83e6-c631c791a1dc"],"text":"clico em criar conta"},{"id":"66a719a6-2571-4884-bd58-455dfd215bed","astNodeIds":["d7c78155-e854-4516-8e84-34fe4f93fce5"],"text":"vou para tela de cadastro"},{"id":"a4b0f445-a8d6-4cbe-9d3d-fa32f68268f5","astNodeIds":["733c20af-0623-4f59-9ce4-344db600a678"],"text":"preencho E-mail \"loannvitor\""},{"id":"16600c5f-6e12-4754-9c65-34f4fad96ae2","astNodeIds":["52149fe3-dc10-4919-829e-2fed854b8351"],"text":"insiro o Nome completo  \"Loann Vitor Marques de Oliveira\""},{"id":"1a31214c-0026-496f-9ba1-00271dfc125b","astNodeIds":["7dc3331d-76b4-4105-8222-caddd384a685"],"text":"coloco a Data de nascimento \"24/03/2004\""},{"id":"b02ee0fe-cc34-4086-92d0-7a36da1f6d2e","astNodeIds":["fa598872-37d7-48a8-88b7-ae05b5403c21"],"text":"insiro o CPF \"10139207910\""},{"id":"a6bed7cb-92a2-4e99-808e-2a1096d90918","astNodeIds":["c2c6a0b4-91a9-457f-8831-fdb1e6be8b70"],"text":"preeencho o Telefone \"41998634188\""},{"id":"2830b5d8-6eca-4381-80b7-78e4bc23ec9d","astNodeIds":["3201ba6c-4f69-48c6-9037-236fd09a2c51"],"text":"coloco o CEP \"82700-380\""},{"id":"d7b630ee-5861-4dd7-af66-d62d7b161584","astNodeIds":["7668d890-a4dc-4b5e-870e-b8c6adf48ee3"],"text":"informo o bairo \"Barreirinha\""},{"id":"fe8c4b2a-59ee-4fbf-867d-70da8c2859a3","astNodeIds":["890d3025-1975-4cd6-881f-381c37d23667"],"text":"coloco o endereço \"Rua dos Ipês Número 201\""},{"id":"b0448a54-f0f2-472d-a0b1-ce8526daa144","astNodeIds":["1e8dd218-13af-42c2-923b-9de3094ceb9f"],"text":"marco aceite aos termos e condições"},{"id":"9e2f37b5-e425-4cb5-ad11-50abdc509da9","astNodeIds":["f28c9098-668c-458e-ba74-d217e89b51f6"],"text":"registro as informações"}]}},
+{"pickle":{"uri":"features/specs/principal.feature","id":"b083c3d2-dfd1-4816-8ed5-526cb3c11de2","tags":[{"name":"@valido_perfil","astNodeId":"113d09e4-389d-4954-848c-b7697ee85d72"}],"name":"Valido tela de perfil","language":"pt","astNodeIds":["37e7b4d1-56b9-4151-a3bd-d302d932dc3c"],"steps":[{"id":"489c2a7a-dc8f-4a27-99e6-85eeff454949","astNodeIds":["03edf10c-48d4-4cd5-a589-ff8edbbfed2c"],"text":"que estou na pagina Perfil usuário"},{"id":"0c57f184-d4b3-4a14-9ec3-6a4b8e3d45a4","astNodeIds":["7cae0f75-7398-4662-83c5-0b8ca1f0d506"],"text":"vejo o texto \"Seus dados\""},{"id":"17fca089-e92d-4d1e-a0ca-7d28c0c21227","astNodeIds":["5e1b6849-54e2-4c4e-b7ba-5e7902fabd51"],"text":"exibe E-mail \"loannvitor\""},{"id":"3a916ea1-e305-4851-a78a-54fa1f948954","astNodeIds":["ec4e7958-821e-4e8d-8bc0-999c44ae3ac1"],"text":"exibe o Nome completo  \"Loann Vitor Marques de Oliveira\""},{"id":"89ee1a95-9d6f-4429-8f7f-0a3ab05fa7c6","astNodeIds":["7d7044fa-3b62-456e-b617-a29a7db44d7f"],"text":"exibe a Data de nascimento \"24/03/2004\""},{"id":"951a5898-fa3a-4f54-8549-8671cf4be985","astNodeIds":["51c60630-5dbd-4030-ba1f-21323ac9fc82"],"text":"exibe o CPF \"10139207910\""},{"id":"f160c6e2-a17c-4026-8aa8-66c43a34f907","astNodeIds":["70e9800c-ef87-4920-8242-ee09e3819b91"],"text":"exibe o Telefone \"(41) 99863-4188\""},{"id":"82e1fa32-5b7d-450c-af3f-2899c176c3e3","astNodeIds":["7b07c52a-598c-4547-b411-5638be92943c"],"text":"exibe o CEP \"82700-380\""},{"id":"31695b23-0f1f-4af6-a777-846ab0a28d82","astNodeIds":["3373fb8b-d6dd-4086-807f-ea09f20a9bb1"],"text":"exibe o bairo \"Barreirinha\""},{"id":"636c3f1d-55b9-489c-8f7c-17c8d9850f46","astNodeIds":["4707f222-bd9a-46be-b161-d8b1175594a6"],"text":"exibe o endereço \"Rua dos Ipês Número 201\""},{"id":"c9d3d75e-5f31-465a-a543-b13181c41c75","astNodeIds":["89c375ed-354d-4904-986c-523d5af41a70"],"text":"Alterar dados cadastrados"}]}},
+{"pickle":{"uri":"features/specs/principal.feature","id":"6f5656db-bcaa-4e13-a792-c979f0799cea","tags":[{"name":"@valido_tela_de_cadasatro_de_produto","astNodeId":"a3227887-dfed-43cc-9f27-9750f38e8aba"}],"name":"Valido tela de cadastro de produto","language":"pt","astNodeIds":["95cbcc9d-5daf-4f6d-9117-9beea5d3c0fd"],"steps":[{"id":"48b74ae0-7381-4f18-9167-8eb2465099b3","astNodeIds":["2a099aba-9779-4dea-b8f7-f7a33f8ec606"],"text":"que estou na pagina Cadastro produto"},{"id":"cdb937b3-57ab-40d7-93ef-ea59c3de50d2","astNodeIds":["a3599dec-5158-413b-8a7d-df113b48661b"],"text":"vejo o texto \"Cadastre o produo\""},{"id":"ab20249e-9c5f-4065-934a-31d4116eec2f","astNodeIds":["f1428dbf-1444-462b-b940-c5d13e108915"],"text":"preencho o Nome do produto \"Lasanha Bolonhesa\""},{"id":"2d504424-a4ce-4ef5-9106-f55f02b14e47","astNodeIds":["ca1a584d-3179-44c0-8223-52df73d2439c"],"text":"informo a Categoria do produto \"Lasanha\""},{"id":"51f4ae96-0978-4b3e-9b24-2d0ed21efff6","astNodeIds":["9b98fbc7-a635-405d-a8dd-1df8d3a8745f"],"text":"escrevo a Quantidade \"20\""},{"id":"bfb891b4-a244-496c-b91c-de784476a8d9","astNodeIds":["e69db8e8-f59a-490a-abe2-03575cc54609"],"text":"preencho Senha \"123456789\""},{"id":"ea28d841-7b21-452a-bd95-1659cb09a910","astNodeIds":["a7a67c3d-1d25-494e-a570-7fe29254ef78"],"text":"clico em Cadastrar"}]}},
+{"testCase":{"id":"8ceb0de2-7a8e-4193-9e80-aaa4a1f33935","pickleId":"2e5ab3b5-cfd0-4faa-b6f1-ce66f2b8ad41","testSteps":[{"id":"0a2b7c08-3cc6-44cb-8a10-5c9fad3201be","hookId":"ac56cf2a-3499-4825-901a-b76f3cce0b1f"},{"id":"48b97707-3909-42dd-b1fc-46faf93121fd","hookId":"65250e64-b09d-48fe-9d5c-f6d72959ed33"},{"id":"891c8cd3-72fe-4085-92f8-d1e64981240c","hookId":"899111f1-d6ad-4a30-9e4f-e28aeebdf488"},{"id":"ad14c431-d5ab-4062-8e0a-0ae60c7b0344","pickleStepId":"5495f8b7-0a3a-4507-a269-b20c6662f9e8","stepDefinitionIds":["0001cf73-3974-42d7-8010-4e7a6f873345"],"stepMatchArgumentsLists":[{}]},{"id":"78b788ec-7ee0-4d0c-9053-e25e8750e540","pickleStepId":"f2ef608f-6caa-4385-ac65-4f6719aa413e","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Pães\"","children":[{"start":30,"value":"Pães","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"ecb41f74-d558-4390-9bb0-7bde740c19c6","pickleStepId":"1b771528-de8e-4240-9d8c-ab67d1c11e86","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Lasanhas\"","children":[{"start":30,"value":"Lasanhas","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"bd5a9932-1dc1-477d-9946-f6cbf24b041b","pickleStepId":"edcc8f87-ed7b-4c72-b29b-3fe8cfde0ab6","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Empadões\"","children":[{"start":30,"value":"Empadões","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"b65f0fe0-5830-4b7b-b23b-5ae20d6450c6","hookId":"8ade09a0-fbe0-4f90-bb64-237da3d70adf"},{"id":"eab759c7-e72d-407a-ba01-e716c0e2c61c","hookId":"a4706988-60c9-44e6-a790-5fea9accb670"},{"id":"8571c6fd-8ad7-4856-a592-6d5180311bb3","hookId":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f"}]}},
+{"testCase":{"id":"093ffe2a-0cd4-4aad-af4d-33830de04f80","pickleId":"33732dad-6fd5-4126-b8ab-51576be5505c","testSteps":[{"id":"7de25acd-3a64-4739-931b-484bb22f45e9","hookId":"ac56cf2a-3499-4825-901a-b76f3cce0b1f"},{"id":"23b2a5dc-80ee-4d24-9134-77f7a790c6d1","hookId":"65250e64-b09d-48fe-9d5c-f6d72959ed33"},{"id":"5615ddf6-f44d-4cdb-87b7-7562d2a5ea0c","hookId":"899111f1-d6ad-4a30-9e4f-e28aeebdf488"},{"id":"85a676ea-1c24-4942-97c5-840e56e5451d","pickleStepId":"176bd636-7695-4a54-84b2-76af9ca059d5","stepDefinitionIds":["0001cf73-3974-42d7-8010-4e7a6f873345"],"stepMatchArgumentsLists":[{}]},{"id":"1e9a1359-068c-4077-9827-f313ff049845","pickleStepId":"7f1a285d-033e-4356-9c59-d0bd2771b346","stepDefinitionIds":["b2ae02e8-0a35-43c2-ad41-4a403ce5a10f"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":26,"value":"\"Pães\"","children":[{"start":27,"value":"Pães","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"864fa191-83eb-4a4c-b8db-87209fed6eea","pickleStepId":"d3169a28-fa4f-4ec0-8837-7e3c1c264cca","stepDefinitionIds":["b2ae02e8-0a35-43c2-ad41-4a403ce5a10f"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":26,"value":"\"Lasanhas\"","children":[{"start":27,"value":"Lasanhas","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"fb63bf9c-8535-41c3-8e87-45ee2d197884","pickleStepId":"291e91e6-4fb4-4dfa-9cb2-8e3c71468527","stepDefinitionIds":["b2ae02e8-0a35-43c2-ad41-4a403ce5a10f"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":26,"value":"\"Empadões\"","children":[{"start":27,"value":"Empadões","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"8ea55b62-7298-47dd-bcb9-f3c16321d9d8","hookId":"8ade09a0-fbe0-4f90-bb64-237da3d70adf"},{"id":"14b9f2de-b838-4842-99dc-2fde04840f19","hookId":"a4706988-60c9-44e6-a790-5fea9accb670"},{"id":"6f0ea133-a3c6-480f-a5f5-7ae4466db23d","hookId":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f"}]}},
+{"testCase":{"id":"dc36feb5-dd88-417f-aed9-b211ea47d9e7","pickleId":"124851cc-d0bf-44f2-9c34-25ec9cea6ca7","testSteps":[{"id":"04044938-cd6f-4244-a06e-e63749189b34","hookId":"ac56cf2a-3499-4825-901a-b76f3cce0b1f"},{"id":"62a1a0cb-a574-4c15-a1e1-fad1bf755118","hookId":"65250e64-b09d-48fe-9d5c-f6d72959ed33"},{"id":"3dcb4ea8-eb2c-4bc5-aedb-de944fe9dbef","hookId":"899111f1-d6ad-4a30-9e4f-e28aeebdf488"},{"id":"4df82d57-82a1-477d-9445-b69b2cec143f","pickleStepId":"3b24f650-6b92-490a-b2d5-abc2ad9913ca","stepDefinitionIds":["0001cf73-3974-42d7-8010-4e7a6f873345"],"stepMatchArgumentsLists":[{}]},{"id":"ebf28b11-7165-4717-b395-8693d18417a1","pickleStepId":"1077c204-afce-4f93-96a7-cac268bf8f00","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Pães\"","children":[{"start":30,"value":"Pães","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"fefd27b4-18da-4b05-a930-7eefe1bb3dc1","pickleStepId":"00f4ac7f-4fb0-4757-9cb3-bd1d4da4d070","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Lasanhas\"","children":[{"start":30,"value":"Lasanhas","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"4e210423-464c-474d-b13f-67dbe3379d25","pickleStepId":"1b0d3c3e-cedf-47c8-832d-3e97b5c7af41","stepDefinitionIds":["b81f5280-8ef7-4599-9d69-65d7cb50eee7"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":29,"value":"\"Empadões\"","children":[{"start":30,"value":"Empadões","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"9b1bc5b8-7d57-4190-8b89-1c43c4a20a34","pickleStepId":"10665bc9-f9b6-48cf-badb-d60a557d650f","stepDefinitionIds":["9474df6c-7553-4a5c-9861-eb4d21d92a4a"],"stepMatchArgumentsLists":[{}]},{"id":"7f562efe-bb77-418d-9e20-1d796c2fdf1a","pickleStepId":"c6b23a30-f8cd-4fd5-a682-4796d651f416","stepDefinitionIds":["ff1eef3c-79f8-48cd-8202-1d640befd339"],"stepMatchArgumentsLists":[{}]},{"id":"4207e3e8-050f-4cbb-bf6b-8e2f4f97b6e1","pickleStepId":"af34a55f-91c7-43b0-9b2a-9f55f7c69a51","stepDefinitionIds":["d08761b2-8657-475e-91b6-ecc2ed81c4ac"],"stepMatchArgumentsLists":[{}]},{"id":"13e603cc-78bb-4d71-be78-a7c0cde5c62c","pickleStepId":"66a719a6-2571-4884-bd58-455dfd215bed","stepDefinitionIds":["c49a45c4-9f53-430d-85d3-8aad448d3d50"],"stepMatchArgumentsLists":[{}]},{"id":"c11cd7c1-82e5-48cb-bea5-2854bb522a3a","pickleStepId":"a4b0f445-a8d6-4cbe-9d3d-fa32f68268f5","stepDefinitionIds":["68214037-8184-48a8-9295-5f9ee3a09467"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":16,"value":"\"loannvitor\"","children":[{"start":17,"value":"loannvitor","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"941bf5c0-4b6f-4bc6-b5b4-6e782be87165","pickleStepId":"16600c5f-6e12-4754-9c65-34f4fad96ae2","stepDefinitionIds":["00e423f6-3030-4061-a798-3c3a8721e406"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":24,"value":"\"Loann Vitor Marques de Oliveira\"","children":[{"start":25,"value":"Loann Vitor Marques de Oliveira","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"3e8d4792-03be-40ff-b6ab-565c4e628f13","pickleStepId":"1a31214c-0026-496f-9ba1-00271dfc125b","stepDefinitionIds":["002264f5-65ff-4925-9b60-a1bb105472b2"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":28,"value":"\"24/03/2004\"","children":[{"start":29,"value":"24/03/2004","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"aeb1c00b-d79f-4ac3-901e-0fc8c15364c8","pickleStepId":"b02ee0fe-cc34-4086-92d0-7a36da1f6d2e","stepDefinitionIds":["cab674a5-f135-47ca-8978-085fe1300c43"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":13,"value":"\"10139207910\"","children":[{"start":14,"value":"10139207910","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"f7a34d25-a471-4097-b697-7e5ec6ea93e1","pickleStepId":"a6bed7cb-92a2-4e99-808e-2a1096d90918","stepDefinitionIds":["b1fdfc9a-6df6-4b52-94a7-439688e62867"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":21,"value":"\"41998634188\"","children":[{"start":22,"value":"41998634188","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"21cd7e7d-2195-461a-9f74-99544a7931fe","pickleStepId":"2830b5d8-6eca-4381-80b7-78e4bc23ec9d","stepDefinitionIds":["8636fe85-cbef-416d-b747-be387137687e"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":13,"value":"\"82700-380\"","children":[{"start":14,"value":"82700-380","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"a86816ae-0b0d-4f1b-ad90-39e80a6f8ad9","pickleStepId":"d7b630ee-5861-4dd7-af66-d62d7b161584","stepDefinitionIds":["a1b76b0b-c017-4819-8847-5d2cea86fedf"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":16,"value":"\"Barreirinha\"","children":[{"start":17,"value":"Barreirinha","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"581d62ab-b8e7-428b-82ee-9c1d272465ee","pickleStepId":"fe8c4b2a-59ee-4fbf-867d-70da8c2859a3","stepDefinitionIds":["50a032f4-3dcd-4a77-bae6-605f6d7f30a2"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":18,"value":"\"Rua dos Ipês Número 201\"","children":[{"start":19,"value":"Rua dos Ipês Número 201","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"c70953f0-59bd-423e-bab3-a776067812a5","pickleStepId":"b0448a54-f0f2-472d-a0b1-ce8526daa144","stepDefinitionIds":["3fe4a07c-63fd-4362-98ce-eb60ce959b61"],"stepMatchArgumentsLists":[{}]},{"id":"8b54ee6b-1c8a-47ce-9559-410442432068","pickleStepId":"9e2f37b5-e425-4cb5-ad11-50abdc509da9","stepDefinitionIds":["a66b014c-d653-455b-81f8-dfe75141de14"],"stepMatchArgumentsLists":[{}]},{"id":"35b5ec11-cbab-4ccb-ab01-a8a5decf3867","hookId":"8ade09a0-fbe0-4f90-bb64-237da3d70adf"},{"id":"3c37c369-0824-40eb-b39c-562710890198","hookId":"a4706988-60c9-44e6-a790-5fea9accb670"},{"id":"8855cdd3-cf40-44d6-aae6-4ad48c134fe9","hookId":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f"}]}},
+{"testCase":{"id":"8ed9b4eb-2119-4187-8c2c-d13b80385ef2","pickleId":"b083c3d2-dfd1-4816-8ed5-526cb3c11de2","testSteps":[{"id":"d749f8d9-b214-4d24-b087-74fc1713a0cc","hookId":"ac56cf2a-3499-4825-901a-b76f3cce0b1f"},{"id":"84f0134b-3a6a-4461-8b92-bb6db7bf387c","hookId":"65250e64-b09d-48fe-9d5c-f6d72959ed33"},{"id":"a483aa9e-b0e3-4c9e-b608-a42c71901ea9","hookId":"899111f1-d6ad-4a30-9e4f-e28aeebdf488"},{"id":"fbaa2237-70a7-4dd1-8827-c2b58caaae9a","pickleStepId":"489c2a7a-dc8f-4a27-99e6-85eeff454949","stepDefinitionIds":["63b475d3-f6dc-428d-b9fc-0e31595a6ec1"],"stepMatchArgumentsLists":[{}]},{"id":"a7dd77d3-0522-411a-a979-38def34be720","pickleStepId":"0c57f184-d4b3-4a14-9ec3-6a4b8e3d45a4"},{"id":"6b73c574-853a-417e-befa-dff7460e89fc","pickleStepId":"17fca089-e92d-4d1e-a0ca-7d28c0c21227","stepDefinitionIds":["afa82d29-a59d-4c8b-af80-4d9b127b2b96"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":13,"value":"\"loannvitor\"","children":[{"start":14,"value":"loannvitor","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"6fb793e4-c738-4706-a12f-75e06e21703b","pickleStepId":"3a916ea1-e305-4851-a78a-54fa1f948954","stepDefinitionIds":["cb1e50d9-587b-42b1-aab8-89df1f996bf9"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":23,"value":"\"Loann Vitor Marques de Oliveira\"","children":[{"start":24,"value":"Loann Vitor Marques de Oliveira","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"c99b27b9-9b98-4ba2-96e9-e314a034aed2","pickleStepId":"89ee1a95-9d6f-4429-8f7f-0a3ab05fa7c6","stepDefinitionIds":["b4dff40d-ab6b-4132-91e0-8e1e5a431698"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":27,"value":"\"24/03/2004\"","children":[{"start":28,"value":"24/03/2004","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"80641641-4539-4884-9423-d1a5c217fead","pickleStepId":"951a5898-fa3a-4f54-8549-8671cf4be985"},{"id":"00290fe6-d5aa-4d4f-af77-374575b1a689","pickleStepId":"f160c6e2-a17c-4026-8aa8-66c43a34f907","stepDefinitionIds":["ae5fe275-3a11-482d-858d-5e5df9628342"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":17,"value":"\"(41) 99863-4188\"","children":[{"start":18,"value":"(41) 99863-4188","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"0cea01f8-9dac-4abd-8d0f-cc9449ab6989","pickleStepId":"82e1fa32-5b7d-450c-af3f-2899c176c3e3","stepDefinitionIds":["b9d44c36-b620-4ec0-98a5-cbce1ebd8f56"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":12,"value":"\"82700-380\"","children":[{"start":13,"value":"82700-380","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"84bfabb1-b54d-474b-a958-c6b70522c463","pickleStepId":"31695b23-0f1f-4af6-a777-846ab0a28d82","stepDefinitionIds":["a7d35419-df14-43d8-a8f5-0a831903ac03"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":14,"value":"\"Barreirinha\"","children":[{"start":15,"value":"Barreirinha","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"9ad724f4-306e-40e9-a419-7172aeadefdd","pickleStepId":"636c3f1d-55b9-489c-8f7c-17c8d9850f46","stepDefinitionIds":["36eb952f-9741-4730-9ee8-fc86995d7375"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":17,"value":"\"Rua dos Ipês Número 201\"","children":[{"start":18,"value":"Rua dos Ipês Número 201","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"b338f45c-a909-4f41-8b88-04d1a0a9ec17","pickleStepId":"c9d3d75e-5f31-465a-a543-b13181c41c75","stepDefinitionIds":["0b71c212-f88f-44d1-9af9-82a776da2b09"],"stepMatchArgumentsLists":[{}]},{"id":"6ecc9afb-d4fe-43d4-8df4-97286f0f6ef3","hookId":"8ade09a0-fbe0-4f90-bb64-237da3d70adf"},{"id":"ef066175-7a38-4798-851e-d63459234f8d","hookId":"a4706988-60c9-44e6-a790-5fea9accb670"},{"id":"77b5d909-d506-480f-8754-f930fece1d85","hookId":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f"}]}},
+{"testCase":{"id":"e82d6f69-0359-4082-a966-d7b24d66eb81","pickleId":"6f5656db-bcaa-4e13-a792-c979f0799cea","testSteps":[{"id":"604b27b5-94d4-466d-9c9a-63186fe2b63b","hookId":"ac56cf2a-3499-4825-901a-b76f3cce0b1f"},{"id":"7845e7cd-fa51-4561-9b74-fc6e322d812e","hookId":"65250e64-b09d-48fe-9d5c-f6d72959ed33"},{"id":"fa18a513-e0ce-4332-9919-56874e6ba787","hookId":"899111f1-d6ad-4a30-9e4f-e28aeebdf488"},{"id":"59577941-6825-42bd-9478-a4299064efe4","pickleStepId":"48b74ae0-7381-4f18-9167-8eb2465099b3"},{"id":"f618cac0-27fd-4277-8bfa-78dfba918080","pickleStepId":"cdb937b3-57ab-40d7-93ef-ea59c3de50d2"},{"id":"0eb37a44-c25d-4ef8-be95-0b1599421739","pickleStepId":"ab20249e-9c5f-4065-934a-31d4116eec2f","stepDefinitionIds":["0f43915a-d66d-4a61-8478-386a9fba77e1"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":27,"value":"\"Lasanha Bolonhesa\"","children":[{"start":28,"value":"Lasanha Bolonhesa","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"bf2318a7-9100-4fc9-a886-c9a1f80e795e","pickleStepId":"2d504424-a4ce-4ef5-9106-f55f02b14e47","stepDefinitionIds":["c4f30c4a-e32b-4b31-8210-393c351dbb90"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":31,"value":"\"Lasanha\"","children":[{"start":32,"value":"Lasanha","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"57e3b9ce-3ddc-444d-bbb5-024486ef00e7","pickleStepId":"51f4ae96-0978-4b3e-9b24-2d0ed21efff6","stepDefinitionIds":["acfd02b4-9bf3-4c26-9688-46f86b92a7ec"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"group":{"start":21,"value":"\"20\"","children":[{"start":22,"value":"20","children":[{}]},{"children":[{}]}]},"parameterTypeName":"string"}]}]},{"id":"ad3b05a6-c2b4-4166-9caf-a770c0661dc6","pickleStepId":"bfb891b4-a244-496c-b91c-de784476a8d9"},{"id":"b6928288-3b27-4cef-ba3e-8037eacc000d","pickleStepId":"ea28d841-7b21-452a-bd95-1659cb09a910"},{"id":"040efaf7-c2b9-401f-abb3-7c62e08379e9","hookId":"8ade09a0-fbe0-4f90-bb64-237da3d70adf"},{"id":"07293d97-0676-4531-93f3-e52f50dcac10","hookId":"a4706988-60c9-44e6-a790-5fea9accb670"},{"id":"722de293-9308-496b-b7b3-35806053606c","hookId":"00453f03-4ba2-4902-8d0f-ff1f1da5c80f"}]}},
+{"testRunStarted":{"timestamp":{"seconds":"1670351907","nanos":677147800}}},
+{"testCaseStarted":{"id":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testCaseId":"8ceb0de2-7a8e-4193-9e80-aaa4a1f33935","timestamp":{"seconds":"1670351907","nanos":682706600},"attempt":1}},
+{"testStepStarted":{"testStepId":"0a2b7c08-3cc6-44cb-8a10-5c9fad3201be","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351907","nanos":747595400}}},
+{"testStepFinished":{"testStepId":"0a2b7c08-3cc6-44cb-8a10-5c9fad3201be","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"PASSED","duration":{"nanos":38600}},"timestamp":{"seconds":"1670351907","nanos":748085600}}},
+{"testStepStarted":{"testStepId":"48b97707-3909-42dd-b1fc-46faf93121fd","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351907","nanos":748360800}}},
+{"testStepFinished":{"testStepId":"48b97707-3909-42dd-b1fc-46faf93121fd","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"PASSED","duration":{"nanos":33500}},"timestamp":{"seconds":"1670351907","nanos":748813900}}},
+{"testStepStarted":{"testStepId":"891c8cd3-72fe-4085-92f8-d1e64981240c","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351907","nanos":749039000}}},
+{"testStepFinished":{"testStepId":"891c8cd3-72fe-4085-92f8-d1e64981240c","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"PASSED","duration":{"nanos":19400}},"timestamp":{"seconds":"1670351907","nanos":749235000}}},
+{"testStepStarted":{"testStepId":"ad14c431-d5ab-4062-8e0a-0ae60c7b0344","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351907","nanos":749615500}}},
+{"testStepFinished":{"testStepId":"ad14c431-d5ab-4062-8e0a-0ae60c7b0344","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"PASSED","duration":{"seconds":"3","nanos":238081699}},"timestamp":{"seconds":"1670351910","nanos":994348100}}},
+{"testStepStarted":{"testStepId":"78b788ec-7ee0-4d0c-9053-e25e8750e540","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351910","nanos":995072500}}},
+{"testStepFinished":{"testStepId":"78b788ec-7ee0-4d0c-9053-e25e8750e540","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"PASSED","duration":{"seconds":"2","nanos":669303600}},"timestamp":{"seconds":"1670351913","nanos":745230200}}},
+{"testStepStarted":{"testStepId":"ecb41f74-d558-4390-9bb0-7bde740c19c6","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351913","nanos":745823000}}},
+{"testStepFinished":{"testStepId":"ecb41f74-d558-4390-9bb0-7bde740c19c6","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"FAILED","duration":{"seconds":"9","nanos":795125999},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/step_definitions/_GenericSteps.rb:15:in `\"vejo e as opções de produtos {string}\"'\nfeatures/specs/principal.feature:9:in `vejo e as opções de produtos \"Lasanhas\"'"},"timestamp":{"seconds":"1670351923","nanos":628318700}}},
+{"testStepStarted":{"testStepId":"bd5a9932-1dc1-477d-9946-f6cbf24b041b","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351923","nanos":629428300}}},
+{"testStepFinished":{"testStepId":"bd5a9932-1dc1-477d-9946-f6cbf24b041b","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351923","nanos":631510600}}},
+{"testStepStarted":{"testStepId":"b65f0fe0-5830-4b7b-b23b-5ae20d6450c6","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351923","nanos":632051900}}},
+{"testStepFinished":{"testStepId":"b65f0fe0-5830-4b7b-b23b-5ae20d6450c6","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"FAILED","duration":{"nanos":32991500},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/helper.rb:5:in `take_screenshot'\n./features/support/hooks.rb:24:in `After'"},"timestamp":{"seconds":"1670351923","nanos":675276700}}},
+{"testStepStarted":{"testStepId":"eab759c7-e72d-407a-ba01-e716c0e2c61c","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351923","nanos":675989500}}},
+{"testStepFinished":{"testStepId":"eab759c7-e72d-407a-ba01-e716c0e2c61c","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"FAILED","duration":{"nanos":17850700},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n\u003cinternal:kernel\u003e:90:in `tap'\n./features/support/hooks.rb:16:in `After'"},"timestamp":{"seconds":"1670351923","nanos":701978000}}},
+{"testStepStarted":{"testStepId":"8571c6fd-8ad7-4856-a592-6d5180311bb3","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351923","nanos":703114300}}},
+{"testStepFinished":{"testStepId":"8571c6fd-8ad7-4856-a592-6d5180311bb3","testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","testStepResult":{"status":"FAILED","duration":{"seconds":"32","nanos":391090599},"message":"disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::WebDriverError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x0032D3F8]\n\t(No symbol) [0x003214E4]\n\t(No symbol) [0x00322344]\n\t(No symbol) [0x00392492]\n\t(No symbol) [0x00388553]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]"},"timestamp":{"seconds":"1670351956","nanos":109061300}}},
+{"testCaseFinished":{"testCaseStartedId":"984e6211-3ec1-46c3-93b1-bab1e9b74627","timestamp":{"seconds":"1670351956","nanos":115102900}}},
+{"testCaseStarted":{"id":"06d9d272-a31d-4b4f-a359-153972ccf186","testCaseId":"093ffe2a-0cd4-4aad-af4d-33830de04f80","timestamp":{"seconds":"1670351956","nanos":122585200},"attempt":1}},
+{"testStepStarted":{"testStepId":"7de25acd-3a64-4739-931b-484bb22f45e9","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":125315400}}},
+{"testStepFinished":{"testStepId":"7de25acd-3a64-4739-931b-484bb22f45e9","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"PASSED","duration":{"nanos":93200}},"timestamp":{"seconds":"1670351956","nanos":126950000}}},
+{"testStepStarted":{"testStepId":"23b2a5dc-80ee-4d24-9134-77f7a790c6d1","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":127953000}}},
+{"testStepFinished":{"testStepId":"23b2a5dc-80ee-4d24-9134-77f7a790c6d1","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"PASSED","duration":{"nanos":92600}},"timestamp":{"seconds":"1670351956","nanos":128765400}}},
+{"testStepStarted":{"testStepId":"5615ddf6-f44d-4cdb-87b7-7562d2a5ea0c","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":129792000}}},
+{"testStepFinished":{"testStepId":"5615ddf6-f44d-4cdb-87b7-7562d2a5ea0c","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"PASSED","duration":{"nanos":52300}},"timestamp":{"seconds":"1670351956","nanos":130480800}}},
+{"testStepStarted":{"testStepId":"85a676ea-1c24-4942-97c5-840e56e5451d","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":131877600}}},
+{"testStepFinished":{"testStepId":"85a676ea-1c24-4942-97c5-840e56e5451d","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"FAILED","duration":{"nanos":21756000},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/pages/objets_page.rb:5:in `acessar'\n./features/step_definitions/_GenericSteps.rb:10:in `\"que estou na pagina principal Massas Manfron\"'\nfeatures/specs/principal.feature:14:in `que estou na pagina principal Massas Manfron'"},"timestamp":{"seconds":"1670351956","nanos":160581700}}},
+{"testStepStarted":{"testStepId":"1e9a1359-068c-4077-9827-f313ff049845","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":161195600}}},
+{"testStepFinished":{"testStepId":"1e9a1359-068c-4077-9827-f313ff049845","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351956","nanos":162595000}}},
+{"testStepStarted":{"testStepId":"864fa191-83eb-4a4c-b8db-87209fed6eea","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":163359100}}},
+{"testStepFinished":{"testStepId":"864fa191-83eb-4a4c-b8db-87209fed6eea","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351956","nanos":164691600}}},
+{"testStepStarted":{"testStepId":"fb63bf9c-8535-41c3-8e87-45ee2d197884","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":165195900}}},
+{"testStepFinished":{"testStepId":"fb63bf9c-8535-41c3-8e87-45ee2d197884","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351956","nanos":166502000}}},
+{"testStepStarted":{"testStepId":"8ea55b62-7298-47dd-bcb9-f3c16321d9d8","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":167004600}}},
+{"testStepFinished":{"testStepId":"8ea55b62-7298-47dd-bcb9-f3c16321d9d8","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"FAILED","duration":{"nanos":20537200},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/helper.rb:5:in `take_screenshot'\n./features/support/hooks.rb:24:in `After'"},"timestamp":{"seconds":"1670351956","nanos":191451800}}},
+{"testStepStarted":{"testStepId":"14b9f2de-b838-4842-99dc-2fde04840f19","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":192909100}}},
+{"testStepFinished":{"testStepId":"14b9f2de-b838-4842-99dc-2fde04840f19","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"FAILED","duration":{"nanos":23446700},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n\u003cinternal:kernel\u003e:90:in `tap'\n./features/support/hooks.rb:16:in `After'"},"timestamp":{"seconds":"1670351956","nanos":217735200}}},
+{"testStepStarted":{"testStepId":"6f0ea133-a3c6-480f-a5f5-7ae4466db23d","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351956","nanos":218158800}}},
+{"testStepFinished":{"testStepId":"6f0ea133-a3c6-480f-a5f5-7ae4466db23d","testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","testStepResult":{"status":"FAILED","duration":{"seconds":"32","nanos":364806999},"message":"disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::WebDriverError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x0032D3F8]\n\t(No symbol) [0x003214E4]\n\t(No symbol) [0x00322344]\n\t(No symbol) [0x00392492]\n\t(No symbol) [0x00388553]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]"},"timestamp":{"seconds":"1670351988","nanos":589366500}}},
+{"testCaseFinished":{"testCaseStartedId":"06d9d272-a31d-4b4f-a359-153972ccf186","timestamp":{"seconds":"1670351988","nanos":594407900}}},
+{"testCaseStarted":{"id":"1485d791-7b05-4832-9f35-a8cceb63c727","testCaseId":"dc36feb5-dd88-417f-aed9-b211ea47d9e7","timestamp":{"seconds":"1670351988","nanos":597340000},"attempt":1}},
+{"testStepStarted":{"testStepId":"04044938-cd6f-4244-a06e-e63749189b34","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":598119100}}},
+{"testStepFinished":{"testStepId":"04044938-cd6f-4244-a06e-e63749189b34","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"PASSED","duration":{"nanos":54000}},"timestamp":{"seconds":"1670351988","nanos":598924900}}},
+{"testStepStarted":{"testStepId":"62a1a0cb-a574-4c15-a1e1-fad1bf755118","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":599735800}}},
+{"testStepFinished":{"testStepId":"62a1a0cb-a574-4c15-a1e1-fad1bf755118","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"PASSED","duration":{"nanos":55300}},"timestamp":{"seconds":"1670351988","nanos":600808300}}},
+{"testStepStarted":{"testStepId":"3dcb4ea8-eb2c-4bc5-aedb-de944fe9dbef","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":601239200}}},
+{"testStepFinished":{"testStepId":"3dcb4ea8-eb2c-4bc5-aedb-de944fe9dbef","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"PASSED","duration":{"nanos":23400}},"timestamp":{"seconds":"1670351988","nanos":601585400}}},
+{"testStepStarted":{"testStepId":"4df82d57-82a1-477d-9445-b69b2cec143f","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":601991500}}},
+{"testStepFinished":{"testStepId":"4df82d57-82a1-477d-9445-b69b2cec143f","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"FAILED","duration":{"nanos":26929700},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/pages/objets_page.rb:5:in `acessar'\n./features/step_definitions/_GenericSteps.rb:10:in `\"que estou na pagina principal Massas Manfron\"'\nfeatures/specs/principal.feature:21:in `que estou na pagina principal Massas Manfron'"},"timestamp":{"seconds":"1670351988","nanos":637071500}}},
+{"testStepStarted":{"testStepId":"ebf28b11-7165-4717-b395-8693d18417a1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":640041800}}},
+{"testStepFinished":{"testStepId":"ebf28b11-7165-4717-b395-8693d18417a1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":641886000}}},
+{"testStepStarted":{"testStepId":"fefd27b4-18da-4b05-a930-7eefe1bb3dc1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":643186900}}},
+{"testStepFinished":{"testStepId":"fefd27b4-18da-4b05-a930-7eefe1bb3dc1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":644997400}}},
+{"testStepStarted":{"testStepId":"4e210423-464c-474d-b13f-67dbe3379d25","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":645616800}}},
+{"testStepFinished":{"testStepId":"4e210423-464c-474d-b13f-67dbe3379d25","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":647049300}}},
+{"testStepStarted":{"testStepId":"9b1bc5b8-7d57-4190-8b89-1c43c4a20a34","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":647742900}}},
+{"testStepFinished":{"testStepId":"9b1bc5b8-7d57-4190-8b89-1c43c4a20a34","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":649389300}}},
+{"testStepStarted":{"testStepId":"7f562efe-bb77-418d-9e20-1d796c2fdf1a","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":649990800}}},
+{"testStepFinished":{"testStepId":"7f562efe-bb77-418d-9e20-1d796c2fdf1a","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":651408600}}},
+{"testStepStarted":{"testStepId":"4207e3e8-050f-4cbb-bf6b-8e2f4f97b6e1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":652292900}}},
+{"testStepFinished":{"testStepId":"4207e3e8-050f-4cbb-bf6b-8e2f4f97b6e1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":655078700}}},
+{"testStepStarted":{"testStepId":"13e603cc-78bb-4d71-be78-a7c0cde5c62c","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":657625900}}},
+{"testStepFinished":{"testStepId":"13e603cc-78bb-4d71-be78-a7c0cde5c62c","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":658768500}}},
+{"testStepStarted":{"testStepId":"c11cd7c1-82e5-48cb-bea5-2854bb522a3a","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":659393700}}},
+{"testStepFinished":{"testStepId":"c11cd7c1-82e5-48cb-bea5-2854bb522a3a","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":663927700}}},
+{"testStepStarted":{"testStepId":"941bf5c0-4b6f-4bc6-b5b4-6e782be87165","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":667609300}}},
+{"testStepFinished":{"testStepId":"941bf5c0-4b6f-4bc6-b5b4-6e782be87165","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":669251300}}},
+{"testStepStarted":{"testStepId":"3e8d4792-03be-40ff-b6ab-565c4e628f13","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":700297200}}},
+{"testStepFinished":{"testStepId":"3e8d4792-03be-40ff-b6ab-565c4e628f13","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":701821500}}},
+{"testStepStarted":{"testStepId":"aeb1c00b-d79f-4ac3-901e-0fc8c15364c8","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":702276000}}},
+{"testStepFinished":{"testStepId":"aeb1c00b-d79f-4ac3-901e-0fc8c15364c8","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":706961200}}},
+{"testStepStarted":{"testStepId":"f7a34d25-a471-4097-b697-7e5ec6ea93e1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":707586100}}},
+{"testStepFinished":{"testStepId":"f7a34d25-a471-4097-b697-7e5ec6ea93e1","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":708331100}}},
+{"testStepStarted":{"testStepId":"21cd7e7d-2195-461a-9f74-99544a7931fe","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":709123500}}},
+{"testStepFinished":{"testStepId":"21cd7e7d-2195-461a-9f74-99544a7931fe","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":709885800}}},
+{"testStepStarted":{"testStepId":"a86816ae-0b0d-4f1b-ad90-39e80a6f8ad9","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":717823100}}},
+{"testStepFinished":{"testStepId":"a86816ae-0b0d-4f1b-ad90-39e80a6f8ad9","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":733022700}}},
+{"testStepStarted":{"testStepId":"581d62ab-b8e7-428b-82ee-9c1d272465ee","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":733613500}}},
+{"testStepFinished":{"testStepId":"581d62ab-b8e7-428b-82ee-9c1d272465ee","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":734930200}}},
+{"testStepStarted":{"testStepId":"c70953f0-59bd-423e-bab3-a776067812a5","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":735493400}}},
+{"testStepFinished":{"testStepId":"c70953f0-59bd-423e-bab3-a776067812a5","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":738795500}}},
+{"testStepStarted":{"testStepId":"8b54ee6b-1c8a-47ce-9559-410442432068","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":739372700}}},
+{"testStepFinished":{"testStepId":"8b54ee6b-1c8a-47ce-9559-410442432068","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670351988","nanos":740527700}}},
+{"testStepStarted":{"testStepId":"35b5ec11-cbab-4ccb-ab01-a8a5decf3867","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":741030700}}},
+{"testStepFinished":{"testStepId":"35b5ec11-cbab-4ccb-ab01-a8a5decf3867","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"FAILED","duration":{"nanos":27555800},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/helper.rb:5:in `take_screenshot'\n./features/support/hooks.rb:24:in `After'"},"timestamp":{"seconds":"1670351988","nanos":770386000}}},
+{"testStepStarted":{"testStepId":"3c37c369-0824-40eb-b39c-562710890198","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":772147500}}},
+{"testStepFinished":{"testStepId":"3c37c369-0824-40eb-b39c-562710890198","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"FAILED","duration":{"nanos":27298700},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n\u003cinternal:kernel\u003e:90:in `tap'\n./features/support/hooks.rb:16:in `After'"},"timestamp":{"seconds":"1670351988","nanos":800649900}}},
+{"testStepStarted":{"testStepId":"8855cdd3-cf40-44d6-aae6-4ad48c134fe9","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670351988","nanos":801081100}}},
+{"testStepFinished":{"testStepId":"8855cdd3-cf40-44d6-aae6-4ad48c134fe9","testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","testStepResult":{"status":"FAILED","duration":{"seconds":"32","nanos":411298799},"message":"disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::WebDriverError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x0032D3F8]\n\t(No symbol) [0x003214E4]\n\t(No symbol) [0x00322344]\n\t(No symbol) [0x00392492]\n\t(No symbol) [0x00388553]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]"},"timestamp":{"seconds":"1670352021","nanos":215935300}}},
+{"testCaseFinished":{"testCaseStartedId":"1485d791-7b05-4832-9f35-a8cceb63c727","timestamp":{"seconds":"1670352021","nanos":219910700}}},
+{"testCaseStarted":{"id":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testCaseId":"8ed9b4eb-2119-4187-8c2c-d13b80385ef2","timestamp":{"seconds":"1670352021","nanos":227089600},"attempt":1}},
+{"testStepStarted":{"testStepId":"d749f8d9-b214-4d24-b087-74fc1713a0cc","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":228585700}}},
+{"testStepFinished":{"testStepId":"d749f8d9-b214-4d24-b087-74fc1713a0cc","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"PASSED","duration":{"nanos":74400}},"timestamp":{"seconds":"1670352021","nanos":229724500}}},
+{"testStepStarted":{"testStepId":"84f0134b-3a6a-4461-8b92-bb6db7bf387c","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":230693200}}},
+{"testStepFinished":{"testStepId":"84f0134b-3a6a-4461-8b92-bb6db7bf387c","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"PASSED","duration":{"nanos":80600}},"timestamp":{"seconds":"1670352021","nanos":231511100}}},
+{"testStepStarted":{"testStepId":"a483aa9e-b0e3-4c9e-b608-a42c71901ea9","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":232481800}}},
+{"testStepFinished":{"testStepId":"a483aa9e-b0e3-4c9e-b608-a42c71901ea9","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"PASSED","duration":{"nanos":26900}},"timestamp":{"seconds":"1670352021","nanos":233763100}}},
+{"testStepStarted":{"testStepId":"fbaa2237-70a7-4dd1-8827-c2b58caaae9a","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":234242900}}},
+{"testStepFinished":{"testStepId":"fbaa2237-70a7-4dd1-8827-c2b58caaae9a","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"FAILED","duration":{"nanos":21026600},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/step_definitions/_GenericSteps.rb:88:in `\"que estou na pagina Perfil usuário\"'\nfeatures/specs/principal.feature:42:in `que estou na pagina Perfil usuário'"},"timestamp":{"seconds":"1670352021","nanos":264288500}}},
+{"testStepStarted":{"testStepId":"a7dd77d3-0522-411a-a979-38def34be720","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":265370800}}},
+{"testStepFinished":{"testStepId":"a7dd77d3-0522-411a-a979-38def34be720","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"UNDEFINED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":267661100}}},
+{"testStepStarted":{"testStepId":"6b73c574-853a-417e-befa-dff7460e89fc","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":268233400}}},
+{"testStepFinished":{"testStepId":"6b73c574-853a-417e-befa-dff7460e89fc","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":269850000}}},
+{"testStepStarted":{"testStepId":"6fb793e4-c738-4706-a12f-75e06e21703b","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":271459200}}},
+{"testStepFinished":{"testStepId":"6fb793e4-c738-4706-a12f-75e06e21703b","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":273469900}}},
+{"testStepStarted":{"testStepId":"c99b27b9-9b98-4ba2-96e9-e314a034aed2","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":275741300}}},
+{"testStepFinished":{"testStepId":"c99b27b9-9b98-4ba2-96e9-e314a034aed2","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":277299800}}},
+{"testStepStarted":{"testStepId":"80641641-4539-4884-9423-d1a5c217fead","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":278134500}}},
+{"testStepFinished":{"testStepId":"80641641-4539-4884-9423-d1a5c217fead","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"UNDEFINED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":279959200}}},
+{"testStepStarted":{"testStepId":"00290fe6-d5aa-4d4f-af77-374575b1a689","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":280752700}}},
+{"testStepFinished":{"testStepId":"00290fe6-d5aa-4d4f-af77-374575b1a689","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":282221700}}},
+{"testStepStarted":{"testStepId":"0cea01f8-9dac-4abd-8d0f-cc9449ab6989","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":282896400}}},
+{"testStepFinished":{"testStepId":"0cea01f8-9dac-4abd-8d0f-cc9449ab6989","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":284455300}}},
+{"testStepStarted":{"testStepId":"84bfabb1-b54d-474b-a958-c6b70522c463","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":285265900}}},
+{"testStepFinished":{"testStepId":"84bfabb1-b54d-474b-a958-c6b70522c463","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":287638000}}},
+{"testStepStarted":{"testStepId":"9ad724f4-306e-40e9-a419-7172aeadefdd","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":288679200}}},
+{"testStepFinished":{"testStepId":"9ad724f4-306e-40e9-a419-7172aeadefdd","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":292408400}}},
+{"testStepStarted":{"testStepId":"b338f45c-a909-4f41-8b88-04d1a0a9ec17","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":293624800}}},
+{"testStepFinished":{"testStepId":"b338f45c-a909-4f41-8b88-04d1a0a9ec17","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352021","nanos":294661400}}},
+{"testStepStarted":{"testStepId":"6ecc9afb-d4fe-43d4-8df4-97286f0f6ef3","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":295246800}}},
+{"testStepFinished":{"testStepId":"6ecc9afb-d4fe-43d4-8df4-97286f0f6ef3","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"FAILED","duration":{"nanos":22860200},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n./features/support/helper.rb:5:in `take_screenshot'\n./features/support/hooks.rb:24:in `After'"},"timestamp":{"seconds":"1670352021","nanos":321324000}}},
+{"testStepStarted":{"testStepId":"ef066175-7a38-4798-851e-d63459234f8d","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":322110500}}},
+{"testStepFinished":{"testStepId":"ef066175-7a38-4798-851e-d63459234f8d","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"FAILED","duration":{"nanos":27061300},"message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::NoSuchWindowError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x00322D7A]\n\t(No symbol) [0x0038BE7B]\n\t(No symbol) [0x0039C196]\n\t(No symbol) [0x00388386]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]\n\u003cinternal:kernel\u003e:90:in `tap'\n./features/support/hooks.rb:16:in `After'"},"timestamp":{"seconds":"1670352021","nanos":351759300}}},
+{"testStepStarted":{"testStepId":"77b5d909-d506-480f-8754-f930fece1d85","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352021","nanos":352270400}}},
+{"testStepFinished":{"testStepId":"77b5d909-d506-480f-8754-f930fece1d85","testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","testStepResult":{"status":"FAILED","duration":{"seconds":"32","nanos":387909700},"message":"disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=108.0.5359.95) (Selenium::WebDriver::Error::WebDriverError)\nBacktrace:\n\t(No symbol) [0x004BF243]\n\t(No symbol) [0x00447FD1]\n\t(No symbol) [0x0033D04D]\n\t(No symbol) [0x0032D3F8]\n\t(No symbol) [0x003214E4]\n\t(No symbol) [0x00322344]\n\t(No symbol) [0x00392492]\n\t(No symbol) [0x00388553]\n\t(No symbol) [0x0036163C]\n\t(No symbol) [0x0036269D]\n\tGetHandleVerifier [0x00759A22+2655074]\n\tGetHandleVerifier [0x0074CA24+2601828]\n\tGetHandleVerifier [0x00568C0A+619850]\n\tGetHandleVerifier [0x00567830+614768]\n\t(No symbol) [0x004505FC]\n\t(No symbol) [0x00455968]\n\t(No symbol) [0x00455A55]\n\t(No symbol) [0x0046051B]\n\tBaseThreadInitThunk [0x7669FEF9+25]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7BBE+286]\n\tRtlGetAppContainerNamedObjectPath [0x77BD7B8E+238]"},"timestamp":{"seconds":"1670352053","nanos":744098400}}},
+{"testCaseFinished":{"testCaseStartedId":"9420f7df-94fe-41c3-9b1d-7524f35f7040","timestamp":{"seconds":"1670352053","nanos":747035300}}},
+{"testCaseStarted":{"id":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testCaseId":"e82d6f69-0359-4082-a966-d7b24d66eb81","timestamp":{"seconds":"1670352053","nanos":751244200},"attempt":1}},
+{"testStepStarted":{"testStepId":"604b27b5-94d4-466d-9c9a-63186fe2b63b","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":752270800}}},
+{"testStepFinished":{"testStepId":"604b27b5-94d4-466d-9c9a-63186fe2b63b","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"PASSED","duration":{"nanos":50300}},"timestamp":{"seconds":"1670352053","nanos":752949700}}},
+{"testStepStarted":{"testStepId":"7845e7cd-fa51-4561-9b74-fc6e322d812e","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":753524200}}},
+{"testStepFinished":{"testStepId":"7845e7cd-fa51-4561-9b74-fc6e322d812e","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"PASSED","duration":{"nanos":51200}},"timestamp":{"seconds":"1670352053","nanos":753999900}}},
+{"testStepStarted":{"testStepId":"fa18a513-e0ce-4332-9919-56874e6ba787","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":754774900}}},
+{"testStepFinished":{"testStepId":"fa18a513-e0ce-4332-9919-56874e6ba787","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"PASSED","duration":{"nanos":36200}},"timestamp":{"seconds":"1670352053","nanos":755376700}}},
+{"testStepStarted":{"testStepId":"59577941-6825-42bd-9478-a4299064efe4","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":756298800}}},
+{"testStepFinished":{"testStepId":"59577941-6825-42bd-9478-a4299064efe4","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"UNDEFINED","duration":{}},"timestamp":{"seconds":"1670352053","nanos":761486300}}},
+{"testStepStarted":{"testStepId":"f618cac0-27fd-4277-8bfa-78dfba918080","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":762321700}}},
+{"testStepFinished":{"testStepId":"f618cac0-27fd-4277-8bfa-78dfba918080","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"UNDEFINED","duration":{}},"timestamp":{"seconds":"1670352053","nanos":764254700}}},
+{"testStepStarted":{"testStepId":"0eb37a44-c25d-4ef8-be95-0b1599421739","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":765109500}}},
+{"testStepFinished":{"testStepId":"0eb37a44-c25d-4ef8-be95-0b1599421739","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352053","nanos":766904000}}},
+{"testStepStarted":{"testStepId":"bf2318a7-9100-4fc9-a886-c9a1f80e795e","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":767671900}}},
+{"testStepFinished":{"testStepId":"bf2318a7-9100-4fc9-a886-c9a1f80e795e","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","testStepResult":{"status":"SKIPPED","duration":{}},"timestamp":{"seconds":"1670352053","nanos":769756300}}},
+{"testStepStarted":{"testStepId":"57e3b9ce-3ddc-444d-bbb5-024486ef00e7","testCaseStartedId":"d7e47ecf-9da6-4364-bfad-c15c6b7a08fa","timestamp":{"seconds":"1670352053","nanos":770776200}}}

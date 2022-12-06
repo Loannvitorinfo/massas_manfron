@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Tela de registro</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="./../index.js"></script>
+    <script src="./index.js"></script>
+    
+    <script>
+        checarSessao();
+    </script>
+
+</head>
+<body>
+    <br><br><br><br>
+    <div id="main-container">
+
+        <h1>Cadastre o produto</h1>
+
+        <form id="register-form" onsubmit="return false;">
+
+            <div class="full-box">
+                <font-size="7"> <label for="name">Nome do produto</label></font-size>
+                <input type="name" name="name" id="name" data-min-length="3">
+            </div><br>
+
+            <div class="full-box"><br>
+                <font-size="7"> <label for="descricao">Descrição do produto</label></font-size>
+                <input type="name" name="descricao" id="descricao" data-min-length="3">
+            </div><br>
+
+            <div class="full-box"><br>
+                <label for="catgoria">Categoria do produto</label>
+                <input type="text" name="catgoria" id="categoria">
+            </div>
+
+            <div class="full-box"><br>
+                <label for="valor">Valor</label>
+                <input type="number" name="valor" id="valor">
+            </div>
+
+            <div class="full-box"><br>
+                <label for="quantidade">Quantidade</label>
+                <input type="number" name="quantidade" id="quantidade">
+            </div>
+
+            <div class="full-box"><br>
+                
+                <input type="submit" value="Voltar para Pagina de Produtos" class="btn btn-default" id="btn-cancelar" onclick="cancelarCadastro();"><br>
+                <input type="submit" value="Confirmar Cadastro " class="btn btn-default" id="btn-submit" onclick="cadastrarProduto();">
+                
+            </div>
+
+       </form>
+    </div>
+<p class="error-validation template"></p>
+<script src="js/script.js"></script>
+</body>
+</html>
