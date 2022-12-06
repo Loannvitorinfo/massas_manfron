@@ -1,4 +1,4 @@
-class Validatotr {
+/*class Validatotr {
 
     constructor(){
         this.Validatios = [
@@ -78,4 +78,4 @@ submit.addEventListener('click', function(e){
 
     validator.validate(form);
 
-});
+});*/

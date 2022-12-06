@@ -25,42 +25,39 @@
     <div class="content">
         <div class="container-login">
             <div class="wrapper-login"></div>
-            <form action="login-form">
+            <form action="#">
                 <spam class="login-form-title">
                     Faça login
                 </spam>
                 <div class="wrap-input margin-top-35 margin bottom-35">
-                    <input class="input-form" type="email" name="email "autocomplete="off" placeholder="E-mail"/>
+                    <input class="input-form" id="email" type="email" name="email" autocomplete="off" placeholder="E-mail"/>
                     <spam class="focus-imput-fomr" data-placeholder="E-mail"></spam>
                 </div>
 
                 <div class="wrap-input margin bottom-35">
-                    <input class="input-form" type="password" name="password" placeholder="Senha">
+                    <input class="input-form" id="password" type="password" name="password" placeholder="Senha">
                     <spam class="focus-imput-fomr" data-placeholder="Senha"></spam>
                 </div>
 
                 <div class="container-login-form-btn">
-
-                    <button class="login-form-btn">Login</button>
+                    <span class="login-form-btn" onclick="validarLogin();">Login</span>
                 </div>
 
-            <ul class="login-utils">
-                <li class="margin-top-8 margin-botton-8">
-                <a href="#" class="text2">
-                    Esqueceu sua senha?
-                </a>
-            </li>
-            <li>
-                <spam class="text1"></spam>
-                    Não possui conta ?
-                </spam>
-                <a href="\massas_manfron\pagina_cadastro_usuario\tela_cadastro_usuario.html" class="text2"><!--Redirecionar link-->
-                    Criar conta
-                </a>
-            </li>
+                <!--<li>
+                    <spam class="text1"></spam>
+                        Não possui conta ?
+                    </spam>
+                    <a href="\massas_manfron\pagina_cadastro_usuario\tela_cadastro_usuario.html" class="text2"><!--Redirecionar link-->
+                        <!--Criar conta
+                    </a>
+                </li>-->
+
             </ul>
             </form>
         </div>
     </div>
 </body>
+
+<script src="./index.js"></script>
+
 </html>
